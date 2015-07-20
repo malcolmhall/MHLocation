@@ -32,4 +32,6 @@
 // defaults to "Annotation"
 @property (nonatomic, copy) NSString* annotationReuseIdentifier;
 
+//@property (strong, readonly) UITableViewController* annotationsTableViewController;
+
 @end

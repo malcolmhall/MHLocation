@@ -20,6 +20,8 @@
 		EC334F2F1B5D78270069E713 /* MHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F2C1B5D78270069E713 /* MHMapViewController.m */; };
 		EC334F321B5D79590069E713 /* CLLocationManager+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */; };
 		EC334F341B5D79CF0069E713 /* MHLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F331B5D79CF0069E713 /* MHLocation.xcassets */; };
+		EC334F391B5D9DF50069E713 /* MHAnnotationDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */; };
+		EC334F3F1B5DA1B10069E713 /* MHEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		EC334F301B5D79590069E713 /* CLLocationManager+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Authorization.h"; path = "../MHLocation/CLLocationManager+Authorization.h"; sourceTree = "<group>"; };
 		EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Authorization.m"; path = "../MHLocation/CLLocationManager+Authorization.m"; sourceTree = "<group>"; };
 		EC334F331B5D79CF0069E713 /* MHLocation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MHLocation.xcassets; path = ../MHLocation/MHLocation.xcassets; sourceTree = "<group>"; };
+		EC334F371B5D9DF50069E713 /* MHAnnotationDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHAnnotationDetailSegue.h; path = ../MHLocation/MHAnnotationDetailSegue.h; sourceTree = "<group>"; };
+		EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHAnnotationDetailSegue.m; path = ../MHLocation/MHAnnotationDetailSegue.m; sourceTree = "<group>"; };
+		EC334F3D1B5DA1B10069E713 /* MHEmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHEmptySegue.h; path = ../MHLocation/MHEmptySegue.h; sourceTree = "<group>"; };
+		EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHEmptySegue.m; path = ../MHLocation/MHEmptySegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,10 @@
 				EC334F301B5D79590069E713 /* CLLocationManager+Authorization.h */,
 				EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */,
 				EC334F331B5D79CF0069E713 /* MHLocation.xcassets */,
+				EC334F371B5D9DF50069E713 /* MHAnnotationDetailSegue.h */,
+				EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */,
+				EC334F3D1B5DA1B10069E713 /* MHEmptySegue.h */,
+				EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */,
 			);
 			name = MHLocation;
 			sourceTree = "<group>";
@@ -260,7 +270,9 @@
 				EC334F321B5D79590069E713 /* CLLocationManager+Authorization.m in Sources */,
 				EC334F031B5D777C0069E713 /* AppDelegate.m in Sources */,
 				EC334F061B5D777C0069E713 /* MasterViewController.m in Sources */,
+				EC334F391B5D9DF50069E713 /* MHAnnotationDetailSegue.m in Sources */,
 				EC334F001B5D777C0069E713 /* main.m in Sources */,
+				EC334F3F1B5DA1B10069E713 /* MHEmptySegue.m in Sources */,
 				EC334F2E1B5D78270069E713 /* MHMapTypeBarButtonItem.m in Sources */,
 				EC334F2D1B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m in Sources */,
 				EC334F091B5D777C0069E713 /* DetailViewController.m in Sources */,

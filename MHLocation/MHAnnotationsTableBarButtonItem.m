@@ -231,6 +231,7 @@
     if([self.mapView.delegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)]){
         //casts to control to prevent a warning.
         [self.mapView.delegate mapView:self.mapView annotationView:[self.mapView viewForAnnotation:annotation]  calloutAccessoryControlTapped:(UIControl*)self];
+
     }
 }
 

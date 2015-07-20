@@ -11,6 +11,7 @@
 #import "MHAnnotationsTableBarButtonItem.h"
 #import <objc/runtime.h>
 #import "CLLocationManager+Authorization.h"
+#import "MHAnnotationDetailSegue.h"
 
 // Use & of this to get a unique pointer for this class.
 static NSString* kShowsUserLocationChanged = @"kShowsUserLocationChanged";
@@ -20,6 +21,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     MKUserTrackingBarButtonItem* _defaultUserTrackingBarButtonItem;
     MHMapTypeBarButtonItem* _defaultMapTypeBarButtonItem;
     MHAnnotationsTableBarButtonItem* _defaultAnnotationsTableBarButtonItem;
+    //UITableViewController* _annotationsTableViewController;
 }
 
 -(void)awakeFromNib{
@@ -27,6 +29,25 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     // set the default cell reuse identifer here so we can use it internally without copying every time we need it if we were to use an accessor and a nil check.
     _annotationReuseIdentifier = kDefaultAnnotationReuseIdentifier;
 }
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+//    _annotationsTableViewController = segue.destinationViewController;
+//}
+//
+//-(UITableViewController*)annotationsTableViewController{
+//    if(_annotationsTableViewController){
+//        return _annotationsTableViewController;
+//    }
+//    // try to get the relationship
+//    @try {
+//        [self performSegueWithIdentifier:@"empty" sender:nil];
+//    }
+//    @catch (NSException *exception) {
+//        NSLog(@"Segue not found: %@", exception);
+//    }
+//    // now its either a valid one or nil.
+//    return _annotationsTableViewController;
+//}
 
 -(MKMapView*)mapView{
     return (MKMapView*)self.view;
@@ -84,7 +105,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
             [NSException raise:@"MapViewController didn't find a map view" format:@"Found a %@. Check the storyboard view controller has had its default view swapped to a map", self.view.class];
         }
     }
-    
+
     _defaultUserTrackingBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     _userTrackingBarButtonItem = _defaultUserTrackingBarButtonItem;
 
@@ -123,6 +144,15 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     pin.annotation = annotation;
     pin.canShowCallout = annotation.title ? YES : NO;
     return pin;
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    // do the default segue if exists.
+    @try {
+        [self performSegueWithIdentifier:kDefaultAnnotationDetailSegueIdentifier sender:view];
+    }
+    @catch (NSException *exception) {
+    }
 }
 
 - (void)dealloc

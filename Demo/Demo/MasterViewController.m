@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "MHAnnotationDetailSegue.h"
 
 @interface MasterViewController ()
 
@@ -68,18 +69,14 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
 #pragma mark - Segues
 
-//-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-//    [self performSegueWithIdentifier:@"showDetail" sender:view];
-//}
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        MKAnnotationView* view = (MKAnnotationView*)sender;
-//        [[segue destinationViewController] setDetailItem:view.annotation.title];
-//    }
-//}
+// called both from the pin callout and the table disclosure button.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:kDefaultAnnotationDetailSegueIdentifier]) { // "showAnnotationDetail"
+        MKAnnotationView* view = (MKAnnotationView*)sender;
+        [[segue destinationViewController] setDetailItem:view.annotation.title];
+    }
+}
 
 @end
