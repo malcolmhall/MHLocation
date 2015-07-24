@@ -218,9 +218,7 @@
     id<MKAnnotation> annotation = [_annotations objectAtIndex:indexPath.row];
     [self.mapView selectAnnotation:annotation animated:NO];
     [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 50.0, 50.0f) animated:NO];
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
@@ -230,7 +228,12 @@
     //forward this onto the map delegate
     if([self.mapView.delegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)]){
         //casts to control to prevent a warning.
-        [self.mapView.delegate mapView:self.mapView annotationView:[self.mapView viewForAnnotation:annotation]  calloutAccessoryControlTapped:(UIControl*)self];
+        MKAnnotationView* view = [self.mapView viewForAnnotation:annotation];
+        // create a dummy view for when the annotation isn't on the map yet.
+        if(!view){
+            view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        }
+        [self.mapView.delegate mapView:self.mapView annotationView:view calloutAccessoryControlTapped:(UIControl*)self];
 
     }
 }

@@ -17,6 +17,14 @@
 //In code change MasterViewController to be a subclass of MHMapViewController and delete all table code.
 //That's it!
 
+// To show a detail view controller when tapping the callout accessory or list view disclosure button,
+// Add the new view controller and control drag from the map controller to the new one,
+// Choose 'annotation detail' segue and set the identifer showDetail.
+// Now in the map view controller subclass add this method, the MKAnnotation is the sender.
+/*
+
+*/
+
 @class MHMapTypeBarButtonItem, MHAnnotationsTableBarButtonItem;
 
 @interface MHMapViewController : UIViewController<MKMapViewDelegate>

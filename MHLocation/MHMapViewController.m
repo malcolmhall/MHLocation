@@ -135,6 +135,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     MKPinAnnotationView* pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:_annotationReuseIdentifier];
     if(!pin){
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:_annotationReuseIdentifier];
+        // add button if necessary
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         UIImage *image = [[UIImage imageNamed:@"DisclosureArrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [rightButton setImage:image forState:UIControlStateNormal];
@@ -147,11 +148,13 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    NSLog(@"calloutAccessoryControlTapped");
     // do the default segue if exists.
     @try {
         [self performSegueWithIdentifier:kDefaultAnnotationDetailSegueIdentifier sender:view];
     }
     @catch (NSException *exception) {
+        NSLog(@"exception %@", exception);
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import "MHAnnotationDetailSegue.h"
 
-const NSString* kDefaultAnnotationDetailSegueIdentifier = @"showAnnotationDetail";
+const NSString* kDefaultAnnotationDetailSegueIdentifier = @"showDetail";
 
 @implementation MHAnnotationDetailSegue
 
