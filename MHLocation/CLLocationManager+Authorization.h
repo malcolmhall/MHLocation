@@ -1,9 +1,9 @@
 //
 //  CLLocationManager+Authorization.h
-//  WiFiFoFum-Passwords
+//  MHLocation
 //
 //  Created by Malcolm Hall on 20/04/2015.
-//  Copyright (c) 2015 Dynamically Loaded. All rights reserved.
+//  Copyright (c) 2015 Malcolm Hall. All rights reserved.
 //
 
 #import <CoreLocation/CoreLocation.h>
