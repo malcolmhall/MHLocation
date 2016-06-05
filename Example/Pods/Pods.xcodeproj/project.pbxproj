@@ -1,0 +1,825 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03C8EA31E055E84D5D8F85E9FC497F10 /* MHLMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA45DA976D092FF9098F65278BA9728 /* MHLMapTypeBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		044F7F953E611EC3E3D1B3D231F61385 /* MHLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B78D1DF7B7DA8A6B95DDF179FB642357 /* MHLMapViewController.m */; };
+		0A6DEBD66044320DA40BDA728588898F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA8FE0C1026F2CE0484EE6B4A7408DB /* MapKit.framework */; };
+		0AB2ABC4E0E1E24EA6B806C85B1716D1 /* NSPredicate+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = 33E5B6BD47A8D7B1A0AB9928FA7057C4 /* NSPredicate+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AA478B145DB829C90B1747C5B2F69F3 /* MHLMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C191073E92F3F2891CA9C865A8C5DBE /* MHLMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		264C6365CF2FC38910EC0B7D3EF1307E /* MHLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C78963E616B8AE638E25D757FF5E657 /* MHLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D0E8705E7BD06BF076A7D329156DDA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6B5B8FC29370DD1C95F985C947D42D /* Foundation.framework */; };
+		2FB1BB81D0D59EE4DA57A23A78246E02 /* MHLAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E7E77DC28E0409C372BC323851D5A53 /* MHLAnnotationsTableBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		330321A10BE529A027710FD2600A868F /* MHLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B84F091F196BF67F4E4A3DC63C34DE4 /* MHLocation.xcassets */; };
+		39A826DE3CBF95961292BF26598980BB /* MHLocation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD730F5330021C9F8AF38CCD8B34F654 /* MHLocation-dummy.m */; };
+		3A8D3A7D1341DCD07E465A501C696004 /* MHLAnnotationDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5CEE40FABB3E1D2979134FDD95EF45 /* MHLAnnotationDetailSegue.m */; };
+		42038BA8EC691B4139EDE09BAE163379 /* CLLocationManager+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBC575CF50C3D467874022D6069486 /* CLLocationManager+MHL.m */; };
+		43698907FC72215082148BCEDF2AEB18 /* MHLManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EB06280C0E6B6E8512258469026C7CFF /* MHLManagedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49EB1A554A97A4BE86902B5A859217AC /* Pods-MHLocation_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB85A211AFDC50B4391179B04AB514 /* Pods-MHLocation_Example-dummy.m */; };
+		579EC568D2E28D4F7D5B805F47C14466 /* MHLFetchedResultsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A06144D5D837CFA4B59906BCC34E699 /* MHLFetchedResultsMapViewController.m */; };
+		5987FAEBBE394B561FCD8FCF493A43B4 /* CLLocationManager+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = 30A44626A5605B01590A7DF7EAB5AA18 /* CLLocationManager+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67DC7FC5E458495D121A7AC6596A2C1C /* Pods-MHLocation_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 72F337A3DD6E87E7F1155D1264C600D4 /* Pods-MHLocation_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C0B9DFB10844799A68F8B8983CFF084 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DDC5A4CE296D716D2815C307DEA130 /* UIKit.framework */; };
+		7E5A0BA4A1F290754268FFD5C27E5CAB /* Pods-MHLocation_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696FB2C279A7900224CFDFA5DAAB72D6 /* Pods-MHLocation_Tests-dummy.m */; };
+		89553C7800ABBE182099F2D4567DC64F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6B5B8FC29370DD1C95F985C947D42D /* Foundation.framework */; };
+		8C6A0892CC288A5693C7DA4F79CAA114 /* MHLManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A88694796E96F95FD1253297FD6EFE /* MHLManagedObject.m */; };
+		9650A9C80BC783EE7365579743B936DD /* MHLEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 974331E7C0666113153CA613013FBB02 /* MHLEmptySegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD40A525EF4F3979CF3746ABBCB4E42 /* MHLMapTypeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C467F243D468C9C3AF68175B32FDF84B /* MHLMapTypeBarButtonItem.m */; };
+		A7A6472B40DDA2EE8E02CE35ECB5B6BB /* MHLFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D0663D1A5A6DB7C7261F026A8AA77BBE /* MHLFetchedResultsMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3BD66780C9F875E03D91A0CA9DFA3BB /* Pods-MHLocation_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C57DFF7344D1AD8572980B8A9482094 /* Pods-MHLocation_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C03A46AEED9B5177761CB2606DDED7F2 /* MHLAnnotationsTableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE2216B27D04007A4765CB4AD18CD /* MHLAnnotationsTableBarButtonItem.m */; };
+		C2C7A2B11654F0F4335864129E5D584C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDDEB936ADAB7F019B682D6350ADD93 /* CoreLocation.framework */; };
+		C49B2F4A262C469CDBC2AB6FDFA9E93E /* MHLAnnotationDetailSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2182D5A3FDC7FF2F7E3EBED093D0B19B /* MHLAnnotationDetailSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D61ED56F47B6019E6F51538FABA7D894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6B5B8FC29370DD1C95F985C947D42D /* Foundation.framework */; };
+		D8B9FA3DCE7446E904805E7F035CA3B2 /* MHLocation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C670A153FD631D3D3577CF96D7977C /* MHLocation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E59962B62B602856EDC66C10BCD23EF0 /* NSPredicate+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AFECA0C1FC51B4E05A1AAEA0944A75 /* NSPredicate+MHL.m */; };
+		E9AF20A798E5502AC854009C4DCBFBF1 /* MHLocation.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 90D97F7E6975BBC12C76FAB5DAC4ED42 /* MHLocation.xcdatamodeld */; };
+		ED81AD9A6EBE52B58CB009F8D14CEB4B /* MHLEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EE45A063A5EE14673C7589FEB1244EE3 /* MHLEmptySegue.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA8A4B1BC60CCBF2A38463D6A82FF848 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20B7BD2C22337F04B27DD805F8063980;
+			remoteInfo = MHLocation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00E2C331CE5B7FA098E5EE27A20EDA2C /* Pods-MHLocation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MHLocation_Tests.modulemap"; sourceTree = "<group>"; };
+		09868E2937AD8497771413FAB437948A /* MHLocation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MHLocation.xcconfig; sourceTree = "<group>"; };
+		0B84F091F196BF67F4E4A3DC63C34DE4 /* MHLocation.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = MHLocation.xcassets; sourceTree = "<group>"; };
+		0C191073E92F3F2891CA9C865A8C5DBE /* MHLMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLMapViewController.h; sourceTree = "<group>"; };
+		1AA45DA976D092FF9098F65278BA9728 /* MHLMapTypeBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLMapTypeBarButtonItem.h; sourceTree = "<group>"; };
+		1EA8FE0C1026F2CE0484EE6B4A7408DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		2182D5A3FDC7FF2F7E3EBED093D0B19B /* MHLAnnotationDetailSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLAnnotationDetailSegue.h; sourceTree = "<group>"; };
+		2A6346BCAA086DE3D9F9F0A8B551368D /* MHLocation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MHLocation.modulemap; sourceTree = "<group>"; };
+		2EEBC575CF50C3D467874022D6069486 /* CLLocationManager+MHL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+MHL.m"; sourceTree = "<group>"; };
+		30A44626A5605B01590A7DF7EAB5AA18 /* CLLocationManager+MHL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+MHL.h"; sourceTree = "<group>"; };
+		30AFECA0C1FC51B4E05A1AAEA0944A75 /* NSPredicate+MHL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+MHL.m"; sourceTree = "<group>"; };
+		3147E9EC8A025F5A6CA0041902EF1A15 /* Pods-MHLocation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MHLocation_Example.release.xcconfig"; sourceTree = "<group>"; };
+		33E5B6BD47A8D7B1A0AB9928FA7057C4 /* NSPredicate+MHL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+MHL.h"; sourceTree = "<group>"; };
+		36A88694796E96F95FD1253297FD6EFE /* MHLManagedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLManagedObject.m; sourceTree = "<group>"; };
+		3DB78C7EB713A1BC4ECF53113709E446 /* Pods-MHLocation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MHLocation_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		40EA9C2FFED3E77A3CAF328D343BEE2C /* Pods-MHLocation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MHLocation_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		4A637067033C0E506A7D5E739A1619AF /* MHLocation.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = MHLocation.xcdatamodel; sourceTree = "<group>"; };
+		4EAB85A211AFDC50B4391179B04AB514 /* Pods-MHLocation_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MHLocation_Example-dummy.m"; sourceTree = "<group>"; };
+		537845E5537DAF57875C9FF5C51C131F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A06144D5D837CFA4B59906BCC34E699 /* MHLFetchedResultsMapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLFetchedResultsMapViewController.m; sourceTree = "<group>"; };
+		5D38B8F9DB2E38CE45F7EC7644151107 /* Pods-MHLocation_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MHLocation_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		65C59063BC5E5F99EC4F09C393C1EE7D /* Pods-MHLocation_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MHLocation_Tests-resources.sh"; sourceTree = "<group>"; };
+		696FB2C279A7900224CFDFA5DAAB72D6 /* Pods-MHLocation_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MHLocation_Tests-dummy.m"; sourceTree = "<group>"; };
+		72F337A3DD6E87E7F1155D1264C600D4 /* Pods-MHLocation_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MHLocation_Example-umbrella.h"; sourceTree = "<group>"; };
+		784ABCFE2EC212B47591A9589B2B998F /* MHLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C78963E616B8AE638E25D757FF5E657 /* MHLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLocation.h; sourceTree = "<group>"; };
+		80C4B87D807371DA47A69909278BA064 /* Pods-MHLocation_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MHLocation_Example-resources.sh"; sourceTree = "<group>"; };
+		8C57DFF7344D1AD8572980B8A9482094 /* Pods-MHLocation_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MHLocation_Tests-umbrella.h"; sourceTree = "<group>"; };
+		8D0E31380BB9CC9301190B6AAFAC67A6 /* MHLocation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MHLocation-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		974331E7C0666113153CA613013FBB02 /* MHLEmptySegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLEmptySegue.h; sourceTree = "<group>"; };
+		9BDDEB936ADAB7F019B682D6350ADD93 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		9E7E77DC28E0409C372BC323851D5A53 /* MHLAnnotationsTableBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLAnnotationsTableBarButtonItem.h; sourceTree = "<group>"; };
+		AB59FA122E8F9AAD38B0A3C9DBF4559A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5FE2216B27D04007A4765CB4AD18CD /* MHLAnnotationsTableBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLAnnotationsTableBarButtonItem.m; sourceTree = "<group>"; };
+		AEF56027876BC8E3914128FC3CB84618 /* Pods-MHLocation_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MHLocation_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B3A00AA7E9B5F3EEC0F2395C132B5839 /* Pods-MHLocation_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MHLocation_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B5E816B1D672E80F1437141D8DF16042 /* Pods-MHLocation_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MHLocation_Example.modulemap"; sourceTree = "<group>"; };
+		B78D1DF7B7DA8A6B95DDF179FB642357 /* MHLMapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLMapViewController.m; sourceTree = "<group>"; };
+		BE895187237DFBBFA5F4342CEDC5D3A3 /* Pods_MHLocation_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHLocation_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF8CEA8C2ED200849BE2C2010F5362D9 /* Pods-MHLocation_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MHLocation_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C3DDC5A4CE296D716D2815C307DEA130 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C467F243D468C9C3AF68175B32FDF84B /* MHLMapTypeBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLMapTypeBarButtonItem.m; sourceTree = "<group>"; };
+		C5CD10D5E3A4CB6F1CC998F4AD3162CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEBB588C5345222DF8AA5E5F98671920 /* Pods_MHLocation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHLocation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0663D1A5A6DB7C7261F026A8AA77BBE /* MHLFetchedResultsMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLFetchedResultsMapViewController.h; sourceTree = "<group>"; };
+		DB6B5B8FC29370DD1C95F985C947D42D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DD730F5330021C9F8AF38CCD8B34F654 /* MHLocation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MHLocation-dummy.m"; sourceTree = "<group>"; };
+		DF5CEE40FABB3E1D2979134FDD95EF45 /* MHLAnnotationDetailSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLAnnotationDetailSegue.m; sourceTree = "<group>"; };
+		E57A8366149BB6C0048507A40E7F9C69 /* Pods-MHLocation_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MHLocation_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		EB06280C0E6B6E8512258469026C7CFF /* MHLManagedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MHLManagedObject.h; sourceTree = "<group>"; };
+		EE45A063A5EE14673C7589FEB1244EE3 /* MHLEmptySegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MHLEmptySegue.m; sourceTree = "<group>"; };
+		F36D38C7E3EE4EA779B59B70914FB50B /* Pods-MHLocation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MHLocation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4C670A153FD631D3D3577CF96D7977C /* MHLocation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MHLocation-umbrella.h"; sourceTree = "<group>"; };
+		F4DC4D91E73B7F1A8F03BE0AF3BCEEEB /* Pods-MHLocation_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MHLocation_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02E7255CBFBC5CB075DC5B07C7DCFFDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D61ED56F47B6019E6F51538FABA7D894 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33CF0595AE48EA3D6FEBBDF3FCFFC135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89553C7800ABBE182099F2D4567DC64F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED38E658A831FEE49F9629FB3891B91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2C7A2B11654F0F4335864129E5D584C /* CoreLocation.framework in Frameworks */,
+				2D0E8705E7BD06BF076A7D329156DDA5 /* Foundation.framework in Frameworks */,
+				0A6DEBD66044320DA40BDA728588898F /* MapKit.framework in Frameworks */,
+				6C0B9DFB10844799A68F8B8983CFF084 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B723A42EE98B3AF9FF1BA3198EF30BF0 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BBC01A845959CC40402638DD9FA8090 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB89DABF57DE08DDFD22CE60930965C1 /* MHLocation */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5F3909AAAAE2F80416949A0229BA4D92 /* MHLocation */ = {
+			isa = PBXGroup;
+			children = (
+				F8FA568D1068D92C3FBF60A561317D23 /* MHLocation */,
+				5BBC01A845959CC40402638DD9FA8090 /* Resources */,
+				99ECD6DBB56AA20A3A8AA0F0C04BE53C /* Support Files */,
+			);
+			name = MHLocation;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				9ECE6CA719229AF5AF63C6E8FD0A0DAB /* Development Pods */,
+				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
+				EB4A04180CF4095E80D4DD0388171E58 /* Products */,
+				A36775F88FE5C16908746BA2F80B55BC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		99ECD6DBB56AA20A3A8AA0F0C04BE53C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5CD10D5E3A4CB6F1CC998F4AD3162CC /* Info.plist */,
+				2A6346BCAA086DE3D9F9F0A8B551368D /* MHLocation.modulemap */,
+				09868E2937AD8497771413FAB437948A /* MHLocation.xcconfig */,
+				DD730F5330021C9F8AF38CCD8B34F654 /* MHLocation-dummy.m */,
+				8D0E31380BB9CC9301190B6AAFAC67A6 /* MHLocation-prefix.pch */,
+				F4C670A153FD631D3D3577CF96D7977C /* MHLocation-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MHLocation";
+			sourceTree = "<group>";
+		};
+		9ECE6CA719229AF5AF63C6E8FD0A0DAB /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F3909AAAAE2F80416949A0229BA4D92 /* MHLocation */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A36775F88FE5C16908746BA2F80B55BC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0570A8006A72ECB13078C558543F6D3 /* Pods-MHLocation_Example */,
+				ADCAB268A71049CB23AF0D45218DA4ED /* Pods-MHLocation_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		ADCAB268A71049CB23AF0D45218DA4ED /* Pods-MHLocation_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AB59FA122E8F9AAD38B0A3C9DBF4559A /* Info.plist */,
+				00E2C331CE5B7FA098E5EE27A20EDA2C /* Pods-MHLocation_Tests.modulemap */,
+				5D38B8F9DB2E38CE45F7EC7644151107 /* Pods-MHLocation_Tests-acknowledgements.markdown */,
+				BF8CEA8C2ED200849BE2C2010F5362D9 /* Pods-MHLocation_Tests-acknowledgements.plist */,
+				696FB2C279A7900224CFDFA5DAAB72D6 /* Pods-MHLocation_Tests-dummy.m */,
+				E57A8366149BB6C0048507A40E7F9C69 /* Pods-MHLocation_Tests-frameworks.sh */,
+				65C59063BC5E5F99EC4F09C393C1EE7D /* Pods-MHLocation_Tests-resources.sh */,
+				8C57DFF7344D1AD8572980B8A9482094 /* Pods-MHLocation_Tests-umbrella.h */,
+				F36D38C7E3EE4EA779B59B70914FB50B /* Pods-MHLocation_Tests.debug.xcconfig */,
+				3DB78C7EB713A1BC4ECF53113709E446 /* Pods-MHLocation_Tests.release.xcconfig */,
+			);
+			name = "Pods-MHLocation_Tests";
+			path = "Target Support Files/Pods-MHLocation_Tests";
+			sourceTree = "<group>";
+		};
+		B723A42EE98B3AF9FF1BA3198EF30BF0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9BDDEB936ADAB7F019B682D6350ADD93 /* CoreLocation.framework */,
+				DB6B5B8FC29370DD1C95F985C947D42D /* Foundation.framework */,
+				1EA8FE0C1026F2CE0484EE6B4A7408DB /* MapKit.framework */,
+				C3DDC5A4CE296D716D2815C307DEA130 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		BFB27FD2369D0A9664762822AB5140CD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0B84F091F196BF67F4E4A3DC63C34DE4 /* MHLocation.xcassets */,
+				90D97F7E6975BBC12C76FAB5DAC4ED42 /* MHLocation.xcdatamodeld */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E0570A8006A72ECB13078C558543F6D3 /* Pods-MHLocation_Example */ = {
+			isa = PBXGroup;
+			children = (
+				537845E5537DAF57875C9FF5C51C131F /* Info.plist */,
+				B5E816B1D672E80F1437141D8DF16042 /* Pods-MHLocation_Example.modulemap */,
+				F4DC4D91E73B7F1A8F03BE0AF3BCEEEB /* Pods-MHLocation_Example-acknowledgements.markdown */,
+				AEF56027876BC8E3914128FC3CB84618 /* Pods-MHLocation_Example-acknowledgements.plist */,
+				4EAB85A211AFDC50B4391179B04AB514 /* Pods-MHLocation_Example-dummy.m */,
+				B3A00AA7E9B5F3EEC0F2395C132B5839 /* Pods-MHLocation_Example-frameworks.sh */,
+				80C4B87D807371DA47A69909278BA064 /* Pods-MHLocation_Example-resources.sh */,
+				72F337A3DD6E87E7F1155D1264C600D4 /* Pods-MHLocation_Example-umbrella.h */,
+				40EA9C2FFED3E77A3CAF328D343BEE2C /* Pods-MHLocation_Example.debug.xcconfig */,
+				3147E9EC8A025F5A6CA0041902EF1A15 /* Pods-MHLocation_Example.release.xcconfig */,
+			);
+			name = "Pods-MHLocation_Example";
+			path = "Target Support Files/Pods-MHLocation_Example";
+			sourceTree = "<group>";
+		};
+		E6D5A9DA45BAE2675256C89CEB3C748E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				30A44626A5605B01590A7DF7EAB5AA18 /* CLLocationManager+MHL.h */,
+				2EEBC575CF50C3D467874022D6069486 /* CLLocationManager+MHL.m */,
+				2182D5A3FDC7FF2F7E3EBED093D0B19B /* MHLAnnotationDetailSegue.h */,
+				DF5CEE40FABB3E1D2979134FDD95EF45 /* MHLAnnotationDetailSegue.m */,
+				9E7E77DC28E0409C372BC323851D5A53 /* MHLAnnotationsTableBarButtonItem.h */,
+				AB5FE2216B27D04007A4765CB4AD18CD /* MHLAnnotationsTableBarButtonItem.m */,
+				974331E7C0666113153CA613013FBB02 /* MHLEmptySegue.h */,
+				EE45A063A5EE14673C7589FEB1244EE3 /* MHLEmptySegue.m */,
+				D0663D1A5A6DB7C7261F026A8AA77BBE /* MHLFetchedResultsMapViewController.h */,
+				5A06144D5D837CFA4B59906BCC34E699 /* MHLFetchedResultsMapViewController.m */,
+				EB06280C0E6B6E8512258469026C7CFF /* MHLManagedObject.h */,
+				36A88694796E96F95FD1253297FD6EFE /* MHLManagedObject.m */,
+				1AA45DA976D092FF9098F65278BA9728 /* MHLMapTypeBarButtonItem.h */,
+				C467F243D468C9C3AF68175B32FDF84B /* MHLMapTypeBarButtonItem.m */,
+				0C191073E92F3F2891CA9C865A8C5DBE /* MHLMapViewController.h */,
+				B78D1DF7B7DA8A6B95DDF179FB642357 /* MHLMapViewController.m */,
+				7C78963E616B8AE638E25D757FF5E657 /* MHLocation.h */,
+				33E5B6BD47A8D7B1A0AB9928FA7057C4 /* NSPredicate+MHL.h */,
+				30AFECA0C1FC51B4E05A1AAEA0944A75 /* NSPredicate+MHL.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EB4A04180CF4095E80D4DD0388171E58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				784ABCFE2EC212B47591A9589B2B998F /* MHLocation.framework */,
+				CEBB588C5345222DF8AA5E5F98671920 /* Pods_MHLocation_Example.framework */,
+				BE895187237DFBBFA5F4342CEDC5D3A3 /* Pods_MHLocation_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB89DABF57DE08DDFD22CE60930965C1 /* MHLocation */ = {
+			isa = PBXGroup;
+			children = (
+				BFB27FD2369D0A9664762822AB5140CD /* Assets */,
+			);
+			path = MHLocation;
+			sourceTree = "<group>";
+		};
+		F8FA568D1068D92C3FBF60A561317D23 /* MHLocation */ = {
+			isa = PBXGroup;
+			children = (
+				E6D5A9DA45BAE2675256C89CEB3C748E /* Classes */,
+			);
+			path = MHLocation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1FF399512278FEEB5586BBF487F3865D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67DC7FC5E458495D121A7AC6596A2C1C /* Pods-MHLocation_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B5245AC5367CF0B48A17BF388363700 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BD66780C9F875E03D91A0CA9DFA3BB /* Pods-MHLocation_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74F464AC506D00549EC8650533BF2FCC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5987FAEBBE394B561FCD8FCF493A43B4 /* CLLocationManager+MHL.h in Headers */,
+				C49B2F4A262C469CDBC2AB6FDFA9E93E /* MHLAnnotationDetailSegue.h in Headers */,
+				2FB1BB81D0D59EE4DA57A23A78246E02 /* MHLAnnotationsTableBarButtonItem.h in Headers */,
+				9650A9C80BC783EE7365579743B936DD /* MHLEmptySegue.h in Headers */,
+				A7A6472B40DDA2EE8E02CE35ECB5B6BB /* MHLFetchedResultsMapViewController.h in Headers */,
+				43698907FC72215082148BCEDF2AEB18 /* MHLManagedObject.h in Headers */,
+				03C8EA31E055E84D5D8F85E9FC497F10 /* MHLMapTypeBarButtonItem.h in Headers */,
+				1AA478B145DB829C90B1747C5B2F69F3 /* MHLMapViewController.h in Headers */,
+				D8B9FA3DCE7446E904805E7F035CA3B2 /* MHLocation-umbrella.h in Headers */,
+				264C6365CF2FC38910EC0B7D3EF1307E /* MHLocation.h in Headers */,
+				0AB2ABC4E0E1E24EA6B806C85B1716D1 /* NSPredicate+MHL.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		20B7BD2C22337F04B27DD805F8063980 /* MHLocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64CEFBE0BBF0387060984B107E6A667C /* Build configuration list for PBXNativeTarget "MHLocation" */;
+			buildPhases = (
+				FCD49486DE9C2B86C14D477AF21BAF49 /* Sources */,
+				EED38E658A831FEE49F9629FB3891B91 /* Frameworks */,
+				74F464AC506D00549EC8650533BF2FCC /* Headers */,
+				BCC7E7BB1945531436AF30548E86D4F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MHLocation;
+			productName = MHLocation;
+			productReference = 784ABCFE2EC212B47591A9589B2B998F /* MHLocation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		24CBB95D6091ED55C94632FD6DCA2849 /* Pods-MHLocation_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0042CFA1708CB97D26D3CE9CF6F4A79C /* Build configuration list for PBXNativeTarget "Pods-MHLocation_Example" */;
+			buildPhases = (
+				3E439BAD805306CD8056E3112C2A6231 /* Sources */,
+				33CF0595AE48EA3D6FEBBDF3FCFFC135 /* Frameworks */,
+				1FF399512278FEEB5586BBF487F3865D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D58E82FC49D085BD445D40516F839E03 /* PBXTargetDependency */,
+			);
+			name = "Pods-MHLocation_Example";
+			productName = "Pods-MHLocation_Example";
+			productReference = CEBB588C5345222DF8AA5E5F98671920 /* Pods_MHLocation_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EEB03A3268606A25A29EE5488182013B /* Pods-MHLocation_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2964843CF7D79D17999FC31DCC527BAA /* Build configuration list for PBXNativeTarget "Pods-MHLocation_Tests" */;
+			buildPhases = (
+				7A33198CDBA3FEBF4CC26125F05F2BE7 /* Sources */,
+				02E7255CBFBC5CB075DC5B07C7DCFFDD /* Frameworks */,
+				3B5245AC5367CF0B48A17BF388363700 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MHLocation_Tests";
+			productName = "Pods-MHLocation_Tests";
+			productReference = BE895187237DFBBFA5F4342CEDC5D3A3 /* Pods_MHLocation_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = EB4A04180CF4095E80D4DD0388171E58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20B7BD2C22337F04B27DD805F8063980 /* MHLocation */,
+				24CBB95D6091ED55C94632FD6DCA2849 /* Pods-MHLocation_Example */,
+				EEB03A3268606A25A29EE5488182013B /* Pods-MHLocation_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCC7E7BB1945531436AF30548E86D4F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330321A10BE529A027710FD2600A868F /* MHLocation.xcassets in Resources */,
+				E9AF20A798E5502AC854009C4DCBFBF1 /* MHLocation.xcdatamodeld in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E439BAD805306CD8056E3112C2A6231 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EB1A554A97A4BE86902B5A859217AC /* Pods-MHLocation_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A33198CDBA3FEBF4CC26125F05F2BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E5A0BA4A1F290754268FFD5C27E5CAB /* Pods-MHLocation_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCD49486DE9C2B86C14D477AF21BAF49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42038BA8EC691B4139EDE09BAE163379 /* CLLocationManager+MHL.m in Sources */,
+				3A8D3A7D1341DCD07E465A501C696004 /* MHLAnnotationDetailSegue.m in Sources */,
+				C03A46AEED9B5177761CB2606DDED7F2 /* MHLAnnotationsTableBarButtonItem.m in Sources */,
+				ED81AD9A6EBE52B58CB009F8D14CEB4B /* MHLEmptySegue.m in Sources */,
+				579EC568D2E28D4F7D5B805F47C14466 /* MHLFetchedResultsMapViewController.m in Sources */,
+				8C6A0892CC288A5693C7DA4F79CAA114 /* MHLManagedObject.m in Sources */,
+				9CD40A525EF4F3979CF3746ABBCB4E42 /* MHLMapTypeBarButtonItem.m in Sources */,
+				044F7F953E611EC3E3D1B3D231F61385 /* MHLMapViewController.m in Sources */,
+				39A826DE3CBF95961292BF26598980BB /* MHLocation-dummy.m in Sources */,
+				E59962B62B602856EDC66C10BCD23EF0 /* NSPredicate+MHL.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D58E82FC49D085BD445D40516F839E03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MHLocation;
+			target = 20B7BD2C22337F04B27DD805F8063980 /* MHLocation */;
+			targetProxy = EA8A4B1BC60CCBF2A38463D6A82FF848 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15147898FF8449D3BFFEC6C4A7AB0D6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40EA9C2FFED3E77A3CAF328D343BEE2C /* Pods-MHLocation_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MHLocation_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MHLocation_Example/Pods-MHLocation_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MHLocation_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2509B497F617ED59A22E55B310F5D65E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F36D38C7E3EE4EA779B59B70914FB50B /* Pods-MHLocation_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MHLocation_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MHLocation_Tests/Pods-MHLocation_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MHLocation_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		28776E5A2109B002C1185A9FB8AABD74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3147E9EC8A025F5A6CA0041902EF1A15 /* Pods-MHLocation_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MHLocation_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MHLocation_Example/Pods-MHLocation_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MHLocation_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		75B07AFD49E0B1F41BA6A79586B70027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09868E2937AD8497771413FAB437948A /* MHLocation.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MHLocation/MHLocation-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MHLocation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MHLocation/MHLocation.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MHLocation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		91244A367737D3973FC7B0DBEADEC113 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DB78C7EB713A1BC4ECF53113709E446 /* Pods-MHLocation_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MHLocation_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MHLocation_Tests/Pods-MHLocation_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MHLocation_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A5063E2E27A13A0E523F2A628DB423B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09868E2937AD8497771413FAB437948A /* MHLocation.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MHLocation/MHLocation-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MHLocation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MHLocation/MHLocation.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MHLocation;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0042CFA1708CB97D26D3CE9CF6F4A79C /* Build configuration list for PBXNativeTarget "Pods-MHLocation_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15147898FF8449D3BFFEC6C4A7AB0D6E /* Debug */,
+				28776E5A2109B002C1185A9FB8AABD74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2964843CF7D79D17999FC31DCC527BAA /* Build configuration list for PBXNativeTarget "Pods-MHLocation_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2509B497F617ED59A22E55B310F5D65E /* Debug */,
+				91244A367737D3973FC7B0DBEADEC113 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
+				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64CEFBE0BBF0387060984B107E6A667C /* Build configuration list for PBXNativeTarget "MHLocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75B07AFD49E0B1F41BA6A79586B70027 /* Debug */,
+				A5063E2E27A13A0E523F2A628DB423B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90D97F7E6975BBC12C76FAB5DAC4ED42 /* MHLocation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A637067033C0E506A7D5E739A1619AF /* MHLocation.xcdatamodel */,
+			);
+			currentVersion = 4A637067033C0E506A7D5E739A1619AF /* MHLocation.xcdatamodel */;
+			path = MHLocation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
