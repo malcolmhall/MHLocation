@@ -15,13 +15,13 @@
 		EC334F0E1B5D777C0069E713 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F0D1B5D777C0069E713 /* Images.xcassets */; };
 		EC334F111B5D777C0069E713 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC334F0F1B5D777C0069E713 /* LaunchScreen.xib */; };
 		EC334F1D1B5D777C0069E713 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F1C1B5D777C0069E713 /* DemoTests.m */; };
-		EC334F2D1B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F281B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m */; };
 		EC334F2E1B5D78270069E713 /* MHMapTypeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F2A1B5D78270069E713 /* MHMapTypeBarButtonItem.m */; };
 		EC334F2F1B5D78270069E713 /* MHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F2C1B5D78270069E713 /* MHMapViewController.m */; };
 		EC334F321B5D79590069E713 /* CLLocationManager+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */; };
 		EC334F341B5D79CF0069E713 /* MHLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC334F331B5D79CF0069E713 /* MHLocation.xcassets */; };
-		EC334F391B5D9DF50069E713 /* MHAnnotationDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */; };
 		EC334F3F1B5DA1B10069E713 /* MHEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */; };
+		ECB82F111C443DA800478D05 /* MHAnnotationDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB82F101C443DA800478D05 /* MHAnnotationDetailSegue.m */; };
+		ECB82F181C448B7C00478D05 /* UIView+MH.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB82F171C448B7C00478D05 /* UIView+MH.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,6 @@
 		EC334F161B5D777C0069E713 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC334F1B1B5D777C0069E713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC334F1C1B5D777C0069E713 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
-		EC334F271B5D78270069E713 /* MHAnnotationsTableBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHAnnotationsTableBarButtonItem.h; path = ../MHLocation/MHAnnotationsTableBarButtonItem.h; sourceTree = "<group>"; };
-		EC334F281B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHAnnotationsTableBarButtonItem.m; path = ../MHLocation/MHAnnotationsTableBarButtonItem.m; sourceTree = "<group>"; };
 		EC334F291B5D78270069E713 /* MHMapTypeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHMapTypeBarButtonItem.h; path = ../MHLocation/MHMapTypeBarButtonItem.h; sourceTree = "<group>"; };
 		EC334F2A1B5D78270069E713 /* MHMapTypeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHMapTypeBarButtonItem.m; path = ../MHLocation/MHMapTypeBarButtonItem.m; sourceTree = "<group>"; };
 		EC334F2B1B5D78270069E713 /* MHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHMapViewController.h; path = ../MHLocation/MHMapViewController.h; sourceTree = "<group>"; };
@@ -59,10 +57,12 @@
 		EC334F301B5D79590069E713 /* CLLocationManager+Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Authorization.h"; path = "../MHLocation/CLLocationManager+Authorization.h"; sourceTree = "<group>"; };
 		EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Authorization.m"; path = "../MHLocation/CLLocationManager+Authorization.m"; sourceTree = "<group>"; };
 		EC334F331B5D79CF0069E713 /* MHLocation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MHLocation.xcassets; path = ../MHLocation/MHLocation.xcassets; sourceTree = "<group>"; };
-		EC334F371B5D9DF50069E713 /* MHAnnotationDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHAnnotationDetailSegue.h; path = ../MHLocation/MHAnnotationDetailSegue.h; sourceTree = "<group>"; };
-		EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHAnnotationDetailSegue.m; path = ../MHLocation/MHAnnotationDetailSegue.m; sourceTree = "<group>"; };
 		EC334F3D1B5DA1B10069E713 /* MHEmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHEmptySegue.h; path = ../MHLocation/MHEmptySegue.h; sourceTree = "<group>"; };
 		EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHEmptySegue.m; path = ../MHLocation/MHEmptySegue.m; sourceTree = "<group>"; };
+		ECB82F0F1C443DA800478D05 /* MHAnnotationDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHAnnotationDetailSegue.h; path = ../MHLocation/MHAnnotationDetailSegue.h; sourceTree = "<group>"; };
+		ECB82F101C443DA800478D05 /* MHAnnotationDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHAnnotationDetailSegue.m; path = ../MHLocation/MHAnnotationDetailSegue.m; sourceTree = "<group>"; };
+		ECB82F161C448B7C00478D05 /* UIView+MH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MH.h"; path = "../../MHUI/MHUI/UIView+MH.h"; sourceTree = "<group>"; };
+		ECB82F171C448B7C00478D05 /* UIView+MH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MH.m"; path = "../../MHUI/MHUI/UIView+MH.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 		EC334EF11B5D777C0069E713 = {
 			isa = PBXGroup;
 			children = (
+				ECB82F151C448B6D00478D05 /* MHUI */,
 				EC334F261B5D78190069E713 /* MHLocation */,
 				EC334EFC1B5D777C0069E713 /* Demo */,
 				EC334F191B5D777C0069E713 /* DemoTests */,
@@ -148,8 +149,8 @@
 		EC334F261B5D78190069E713 /* MHLocation */ = {
 			isa = PBXGroup;
 			children = (
-				EC334F271B5D78270069E713 /* MHAnnotationsTableBarButtonItem.h */,
-				EC334F281B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m */,
+				ECB82F0F1C443DA800478D05 /* MHAnnotationDetailSegue.h */,
+				ECB82F101C443DA800478D05 /* MHAnnotationDetailSegue.m */,
 				EC334F291B5D78270069E713 /* MHMapTypeBarButtonItem.h */,
 				EC334F2A1B5D78270069E713 /* MHMapTypeBarButtonItem.m */,
 				EC334F2B1B5D78270069E713 /* MHMapViewController.h */,
@@ -157,12 +158,19 @@
 				EC334F301B5D79590069E713 /* CLLocationManager+Authorization.h */,
 				EC334F311B5D79590069E713 /* CLLocationManager+Authorization.m */,
 				EC334F331B5D79CF0069E713 /* MHLocation.xcassets */,
-				EC334F371B5D9DF50069E713 /* MHAnnotationDetailSegue.h */,
-				EC334F381B5D9DF50069E713 /* MHAnnotationDetailSegue.m */,
 				EC334F3D1B5DA1B10069E713 /* MHEmptySegue.h */,
 				EC334F3E1B5DA1B10069E713 /* MHEmptySegue.m */,
 			);
 			name = MHLocation;
+			sourceTree = "<group>";
+		};
+		ECB82F151C448B6D00478D05 /* MHUI */ = {
+			isa = PBXGroup;
+			children = (
+				ECB82F161C448B7C00478D05 /* UIView+MH.h */,
+				ECB82F171C448B7C00478D05 /* UIView+MH.m */,
+			);
+			name = MHUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,12 +277,12 @@
 				EC334F2F1B5D78270069E713 /* MHMapViewController.m in Sources */,
 				EC334F321B5D79590069E713 /* CLLocationManager+Authorization.m in Sources */,
 				EC334F031B5D777C0069E713 /* AppDelegate.m in Sources */,
+				ECB82F181C448B7C00478D05 /* UIView+MH.m in Sources */,
 				EC334F061B5D777C0069E713 /* MasterViewController.m in Sources */,
-				EC334F391B5D9DF50069E713 /* MHAnnotationDetailSegue.m in Sources */,
 				EC334F001B5D777C0069E713 /* main.m in Sources */,
 				EC334F3F1B5DA1B10069E713 /* MHEmptySegue.m in Sources */,
 				EC334F2E1B5D78270069E713 /* MHMapTypeBarButtonItem.m in Sources */,
-				EC334F2D1B5D78270069E713 /* MHAnnotationsTableBarButtonItem.m in Sources */,
+				ECB82F111C443DA800478D05 /* MHAnnotationDetailSegue.m in Sources */,
 				EC334F091B5D777C0069E713 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +478,7 @@
 				EC334F221B5D777C0069E713 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC334F231B5D777C0069E713 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +487,7 @@
 				EC334F251B5D777C0069E713 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

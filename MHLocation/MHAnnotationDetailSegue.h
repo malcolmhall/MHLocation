@@ -10,8 +10,6 @@
 
 // this segue allows the annotation detail view controller to be pushed both from the annotation view callout and from the annotation table view detail disclosure.
 
-extern NSString* kDefaultAnnotationDetailSegueIdentifier; // The default is 'showDetail' so set that identifier in the storyboard manual segue.
-
 @interface MHAnnotationDetailSegue : UIStoryboardSegue
 
 @end

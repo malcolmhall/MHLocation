@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 @property (nonatomic, readonly) double altitude;
+@property (nonatomic, readonly) double horizontalAccuracy;
 
 @end
 

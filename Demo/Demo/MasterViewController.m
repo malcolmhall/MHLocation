@@ -8,9 +8,11 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "MHAnnotationDetailSegue.h"
 
 @interface MasterViewController ()
+
+// after inserting to this array also call the insert method below.
+@property (nonatomic) NSMutableArray* annotations;
 
 @end
 
@@ -24,9 +26,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    self.annotations = [NSMutableArray array];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.annotationTablePresentationStyle = MHAnnotationTablePresentationStyleSheet;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,25 +62,44 @@
     [UIAlertAction actionWithTitle:@"OK"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction * action) {
+                               // do the insert
+                              
                                UITextField *textField = alert.textFields.firstObject;
                                MKPointAnnotation* p = [[MKPointAnnotation alloc] init];
                                p.coordinate = coord;
                                p.title = textField.text;
-                               [self.mapView addAnnotation:p];
+                               
+                               [self.annotations addObject:p];
+                               [self insertAnnotationsAtIndexPaths:@[[NSIndexPath indexPathWithIndex:self.annotations.count - 1]]];
                            }];
     
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - Segues
+-(id<MKAnnotation>)annotationAtIndex:(NSUInteger)index{
+    return [self.annotations objectAtIndex:index];
+}
+
+- (NSInteger)numberOfAnnotations{
+    return self.annotations.count;
+}
+
+-(NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
+    return [self.annotations indexOfObject:annotation];
+}
+
+-(void)willPresentDetailController:(UIViewController*)viewController annotation:(id<MKAnnotation>)annotation{
+    DetailViewController* detailViewController = (DetailViewController*)viewController;
+    detailViewController.detailItem = annotation.title;
+}
 
 // called both from the pin callout and the table disclosure button.
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:kDefaultAnnotationDetailSegueIdentifier]) { // "showAnnotationDetail"
-        MKAnnotationView* view = (MKAnnotationView*)sender;
-        [[segue destinationViewController] setDetailItem:view.annotation.title];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:MHShowAnnotationDetailSegueIdentifier]) { // "showDetail"
+//        MKAnnotationView* view = (MKAnnotationView*)sender;
+//        [[segue destinationViewController] setDetailItem:view.annotation.title];
+//    }
+//}
 
 @end
