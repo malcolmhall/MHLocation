@@ -9,42 +9,42 @@
         {
           'type': 'file',
           'name': "CLLocationManager+MHL.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/CLLocationManager+MHL.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/CLLocationManager+MHL.h"
         },
         {
           'type': 'file',
           'name': "MHLAnnotationDetailSegue.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLAnnotationDetailSegue.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLAnnotationDetailSegue.h"
         },
         {
           'type': 'file',
           'name': "MHLAnnotationsTableBarButtonItem.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLAnnotationsTableBarButtonItem.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLAnnotationsTableBarButtonItem.h"
         },
         {
           'type': 'file',
           'name': "MHLEmptySegue.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLEmptySegue.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLEmptySegue.h"
         },
         {
           'type': 'file',
           'name': "MHLFetchedResultsMapViewController.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLFetchedResultsMapViewController.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLFetchedResultsMapViewController.h"
         },
         {
           'type': 'file',
           'name': "MHLManagedObject.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLManagedObject.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLManagedObject.h"
         },
         {
           'type': 'file',
           'name': "MHLMapTypeBarButtonItem.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLMapTypeBarButtonItem.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLMapTypeBarButtonItem.h"
         },
         {
           'type': 'file',
           'name': "MHLMapViewController.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLMapViewController.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLMapViewController.h"
         },
         {
           'type': 'file',
@@ -59,12 +59,12 @@
         {
           'type': 'file',
           'name': "MHLocation.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/MHLocation.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLocation.h"
         },
         {
           'type': 'file',
           'name': "NSPredicate+MHL.h",
-          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/Classes/NSPredicate+MHL.h"
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/NSPredicate+MHL.h"
         }
       ]
     },

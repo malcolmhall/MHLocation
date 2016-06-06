@@ -18,10 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MHLocation/Classes/**/*",
+  "source_files": "MHLocation/**/*.{h,m}",
   "resources": [
-    "MHLocation/Assets/*.xcassets",
-    "MHLocation/Assets/*.xcdatamodeld"
+    "MHLocation/*.xcassets",
+    "MHLocation/*.xcdatamodeld"
   ],
   "frameworks": [
     "UIKit",
