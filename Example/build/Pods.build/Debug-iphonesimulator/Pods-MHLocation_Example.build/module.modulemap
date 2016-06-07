@@ -1,6 +1,0 @@
-framework module Pods_MHLocation_Example {
-  umbrella header "Pods-MHLocation_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

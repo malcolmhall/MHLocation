@@ -10,7 +10,7 @@
 
 @implementation NSPredicate (MHL)
 
-+(NSPredicate*)mh_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString*)keyPrefix{
++(NSPredicate*)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString*)keyPrefix{
     CLLocationCoordinate2D center = region.center;
     CLLocationCoordinate2D northWestCorner, southEastCorner;
     northWestCorner.latitude  = center.latitude  - (region.span.latitudeDelta  / 2.0);
@@ -31,8 +31,8 @@
     return [NSPredicate predicateWithFormat:@"%K > %f AND %K < %f AND %K > %f AND %K < %f", latitudeKey, northWestCorner.latitude, latitudeKey, southEastCorner.latitude, longitudeKey, southEastCorner.longitude, longitudeKey, northWestCorner.longitude];
 }
 
-+(NSPredicate*)mh_predicateWithCoordinateRegion:(MKCoordinateRegion)region{
-    return [NSPredicate mh_predicateWithCoordinateRegion:region keyPrefix:nil];
++(NSPredicate*)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region{
+    return [NSPredicate mhl_predicateWithCoordinateRegion:region keyPrefix:nil];
 }
 
 @end

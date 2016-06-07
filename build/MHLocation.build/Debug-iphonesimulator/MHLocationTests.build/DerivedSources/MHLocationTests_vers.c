@@ -1,0 +1,1 @@
+ const unsigned char MHLocationTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:MHLocationTests  PROJECT:MHLocation-1" "\n"; const double MHLocationTestsVersionNumber __attribute__ ((used)) = (double)1.;

@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/mh/Development/Github/MHLocation/build/Debug-iphonesimulator/MHLocation.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MHLocation-Swift.h",
+          'external-contents': "/Users/mh/Development/Github/MHLocation/build/Debug-iphonesimulator/MHLocation.framework/Headers/MHLocation-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MHLocation.h",
+          'external-contents': "/Users/mh/Development/Github/MHLocation/MHLocation/MHLocation.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/mh/Development/Github/MHLocation/build/Debug-iphonesimulator/MHLocation.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/mh/Development/Github/MHLocation/build/MHLocation.build/Debug-iphonesimulator/MHLocation.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
