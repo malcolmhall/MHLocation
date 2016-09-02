@@ -1,6 +1,0 @@
-framework module MHLocation {
-  umbrella header "MHLocation.h"
-
-  export *
-  module * { export * }
-}
