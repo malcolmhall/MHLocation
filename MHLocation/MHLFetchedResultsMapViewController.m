@@ -23,10 +23,6 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     MKCoordinateRegion _lastCoordinateRegion;
 }
 
--(NSManagedObjectContext*)managedObjectContext{
-    return self.fetchedResultsController.managedObjectContext;
-}
-
 -(void)awakeFromNib{
     [super awakeFromNib];
     // set the default cell reuse identifer here so we can use it internally without copying every time we need it if we were to use an accessor and a nil check.

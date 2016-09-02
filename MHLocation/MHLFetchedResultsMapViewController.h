@@ -17,9 +17,6 @@
 
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-//convenience
-@property (nonatomic, readonly) NSManagedObjectContext* managedObjectContext;
-
 @property (strong) NSString* keyPrefix;
 
 // unimplemented
