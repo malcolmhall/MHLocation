@@ -255,6 +255,9 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 //    if(!self.presentingAnnotationsTable){
 //        return;
 //    }
+    if(view.annotation == mapView.userLocation){
+        return;
+    }
     NSInteger index = [self indexOfAnnotation:view.annotation];
     if(index == NSNotFound){
         return;
