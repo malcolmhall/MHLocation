@@ -30,6 +30,8 @@
 		EC3144CD1D073CD20025F669 /* MHLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B81D073CD20025F669 /* MHLocation.xcdatamodeld */; };
 		EC3144CE1D073CD20025F669 /* NSPredicate+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */; };
 		EC3144CF1D073CD20025F669 /* NSPredicate+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */; };
+		EC6758741DAFDF2700838798 /* MHLNamespaceDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC67588A1DAFE8F800838798 /* MHLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758711DAFDCD400838798 /* MHLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		EC3144B91D073CD20025F669 /* MHLocation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHLocation.xcdatamodel; sourceTree = "<group>"; };
 		EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+MHL.h"; sourceTree = "<group>"; };
 		EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+MHL.m"; sourceTree = "<group>"; };
+		EC6758711DAFDCD400838798 /* MHLDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLDefines.h; sourceTree = "<group>"; };
+		EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLNamespaceDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				EC3144901D073C610025F669 /* MHLocation.h */,
-				EC3144921D073C610025F669 /* Info.plist */,
+				EC6758711DAFDCD400838798 /* MHLDefines.h */,
+				EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */,
 				EC3144A71D073CD20025F669 /* CLLocationManager+MHL.h */,
 				EC3144A81D073CD20025F669 /* CLLocationManager+MHL.m */,
 				EC3144A91D073CD20025F669 /* MHLAnnotationDetailSegue.h */,
@@ -129,10 +134,11 @@
 				EC3144B41D073CD20025F669 /* MHLMapTypeBarButtonItem.m */,
 				EC3144B51D073CD20025F669 /* MHLMapViewController.h */,
 				EC3144B61D073CD20025F669 /* MHLMapViewController.m */,
-				EC3144B71D073CD20025F669 /* MHLocation.xcassets */,
-				EC3144B81D073CD20025F669 /* MHLocation.xcdatamodeld */,
 				EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */,
 				EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */,
+				EC3144921D073C610025F669 /* Info.plist */,
+				EC3144B71D073CD20025F669 /* MHLocation.xcassets */,
+				EC3144B81D073CD20025F669 /* MHLocation.xcdatamodeld */,
 			);
 			path = MHLocation;
 			sourceTree = "<group>";
@@ -155,8 +161,10 @@
 			files = (
 				EC3144C81D073CD20025F669 /* MHLMapTypeBarButtonItem.h in Headers */,
 				EC3144BC1D073CD20025F669 /* CLLocationManager+MHL.h in Headers */,
+				EC6758741DAFDF2700838798 /* MHLNamespaceDefines.h in Headers */,
 				EC3144C61D073CD20025F669 /* MHLManagedObject.h in Headers */,
 				EC3144BE1D073CD20025F669 /* MHLAnnotationDetailSegue.h in Headers */,
+				EC67588A1DAFE8F800838798 /* MHLDefines.h in Headers */,
 				EC3144911D073C610025F669 /* MHLocation.h in Headers */,
 				EC3144C41D073CD20025F669 /* MHLFetchedResultsMapViewController.h in Headers */,
 				EC3144CA1D073CD20025F669 /* MHLMapViewController.h in Headers */,
@@ -175,6 +183,7 @@
 			buildPhases = (
 				EC3144881D073C610025F669 /* Sources */,
 				EC3144891D073C610025F669 /* Frameworks */,
+				EC6758721DAFDEE500838798 /* ShellScript */,
 				EC31448A1D073C610025F669 /* Headers */,
 				EC31448B1D073C610025F669 /* Resources */,
 			);
@@ -257,6 +266,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC6758721DAFDEE500838798 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "dependencies/MHNamespaceGenerator/script.sh MHLocation MHL";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC3144881D073C610025F669 /* Sources */ = {
@@ -456,6 +481,7 @@
 				EC3144A31D073C610025F669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC3144A41D073C610025F669 /* Build configuration list for PBXNativeTarget "MHLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +490,7 @@
 				EC3144A61D073C610025F669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

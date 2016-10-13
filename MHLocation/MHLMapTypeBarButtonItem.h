@@ -1,6 +1,6 @@
 //
 //  MHLMapTypeBarButtonItem.h
-//  MapControllerTest
+//  MHLocation
 //
 //  Created by Malcolm Hall on 11/11/13.
 //  Copyright (c) 2013 Malcolm Hall. All rights reserved.
@@ -19,12 +19,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <MHLocation/MHLDefines.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface MHLMapTypeBarButtonItem : UIBarButtonItem
 
-- (id)initWithMapView:(MKMapView *)mapView;
-- (id)initWithMapView:(MKMapView *)mapView userDefaultsKey:(NSString*)userDefaultsKey;
+- (instancetype)initWithMapView:(MKMapView *)mapView;
+- (instancetype)initWithMapView:(MKMapView *)mapView userDefaultsKey:(nullable NSString *)userDefaultsKey;
 
-@property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end
+
+NS_ASSUME_NONNULL_END

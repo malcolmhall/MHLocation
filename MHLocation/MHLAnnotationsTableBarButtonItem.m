@@ -1,22 +1,28 @@
+//
+//  MHLAnnotationsTableBarButtonItem.m
+//  MHLocation
+//
+//  Created by Malcolm Hall on 20/07/2015.
+//  Copyright (c) 2015 Malcolm Hall. All rights reserved.
+//
 
-#import <MapKit/MapKit.h>
 #import "MHLAnnotationsTableBarButtonItem.h"
 
-@interface MHLAnnotationsTableBarButtonItem() <UITableViewDataSource,UITableViewDelegate>
+@interface MHLAnnotationsTableBarButtonItem() <UITableViewDataSource, UITableViewDelegate>
+
 @property (strong) UINavigationController *navigationController;
-
-- (UIViewController *)_viewControllerContainingView:(UIView*)view;
-
 @property (strong) NSArray* annotations;
 @property (strong) UIPopoverController* popover;
+
+- (UIViewController *)_viewControllerContainingView:(UIView *)view;
 
 @end
 
  //private API for getting the list icon instead of including the png as a resource.
 #if defined(JB)
 
-@interface UIImage(UIImagePrivate)
-+(UIImage*)kitImageNamed:(NSString*)named; // UIButtonBarListIcon
+@interface UIImage (UIImagePrivate)
++ (UIImage *)kitImageNamed:(NSString *)named; // UIButtonBarListIcon
 @end
 
 #endif
@@ -24,7 +30,7 @@
 
 @implementation MHLAnnotationsTableBarButtonItem
 
-- (id)initWithMapView:(MKMapView *)mapView image:(UIImage*)image{
+- (id)initWithMapView:(MKMapView *)mapView image:(UIImage *)image{
     
     // find a default image if one wasn't set
     if(!image){
@@ -63,12 +69,12 @@
     return (UIViewController *)responder;
 }
 
--(void)_doneButtonItemTapped:(id)sender{
+- (void)_doneButtonItemTapped:(id)sender{
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)_annotationsTableButtonItemTapped:(id)sender{
-    UITableViewController* a = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+- (void)_annotationsTableButtonItemTapped:(id)sender{
+    UITableViewController *a = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     a.tableView.delegate = self;
     a.tableView.dataSource = self;
     
@@ -84,7 +90,7 @@
         a.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(_doneButtonItemTapped:)];
     }
     
-    UIViewController* containerViewController = [self _viewControllerContainingView:self.mapView];
+    UIViewController *containerViewController = [self _viewControllerContainingView:self.mapView];
 
     //this tries to create an automatic title.
     //first try and get nav bar title
@@ -113,7 +119,7 @@
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:a];
     
-    UINavigationController* originatingNavigationController = containerViewController.navigationController;
+    UINavigationController *originatingNavigationController = containerViewController.navigationController;
     if (originatingNavigationController != nil) {
         self.navigationController.toolbar.tintColor = originatingNavigationController.toolbar.tintColor;
         self.navigationController.navigationBar.barStyle = originatingNavigationController.navigationBar.barStyle;
@@ -132,7 +138,7 @@
     }
 }
 
--(void)_tableViewDidLoadRows:(UITableView*)tableView{
+- (void)_tableViewDidLoadRows:(UITableView*)tableView{
     if(_mapView.selectedAnnotations.count){
         NSInteger index = [self.annotations indexOfObject:_mapView.selectedAnnotations.firstObject];
         [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
@@ -188,7 +194,7 @@
 	cell.textLabel.text = annotation.title;
 	cell.detailTextLabel.text = annotation.subtitle;
     
-    UIImage* image = nil;
+    UIImage *image = nil;
     //try to get an image for the table
     if([_mapView.delegate respondsToSelector:@selector(imageForAnnotation:)]){
        image = [(id<MKMapViewAnnotationsTableDelegate>)_mapView.delegate imageForAnnotation:annotation];
@@ -233,13 +239,9 @@
         if(!view){
             view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
         }
-        [self.mapView.delegate mapView:self.mapView annotationView:view calloutAccessoryControlTapped:(UIControl*)self];
-
+        [self.mapView.delegate mapView:self.mapView annotationView:view calloutAccessoryControlTapped:(UIControl *)self];
     }
 }
-
-
-
 
 @end
 

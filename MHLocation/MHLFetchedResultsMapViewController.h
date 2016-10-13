@@ -1,14 +1,15 @@
 //
 //  MHLFetchedResultsMapViewController.h
-//  WiFiFoFum-Passwords
+//  MHLocation
 //
 //  Created by Malcolm Hall on 27/04/2015.
 //  Copyright (c) 2015 Malcolm Hall. All rights reserved.
 //
 
-#import <MHLocation/MHLMapViewController.h>
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
+#import <MHLocation/MHLDefines.h>
+#import <MHLocation/MHLMapViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

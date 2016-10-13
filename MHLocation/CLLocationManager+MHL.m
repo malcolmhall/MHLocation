@@ -10,7 +10,7 @@
 
 @implementation CLLocationManager (MHL)
 
-+(void)mhl_requestLocationAuthorizationIfNotDetermined{
++ (void)mhl_requestLocationAuthorizationIfNotDetermined{
     if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
         BOOL always = NO;
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
@@ -19,7 +19,7 @@
         else if(![[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
             @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription description missing from Info.plist" userInfo:nil];
         }
-        static CLLocationManager* lm = nil;
+        static CLLocationManager *lm = nil;
         static dispatch_once_t once;
         dispatch_once(&once, ^ {
             // Code to run once

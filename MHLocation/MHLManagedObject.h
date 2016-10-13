@@ -9,20 +9,25 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
+#import <MHLocation/MHLDefines.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface MHLManagedObject : NSManagedObject
 
-@property (nonatomic, retain) CLLocation* location; // transient
+@property (nonatomic, strong) CLLocation *location; // transient
 
-@property (nonatomic, readonly) double latitude;
-@property (nonatomic, readonly) double longitude;
-@property (nonatomic, readonly) double altitude;
-@property (nonatomic, readonly) double horizontalAccuracy;
+@property (nonatomic, assign, readonly) double latitude;
+@property (nonatomic, assign, readonly) double longitude;
+@property (nonatomic, assign, readonly) double altitude;
+@property (nonatomic, assign, readonly) double horizontalAccuracy;
+
+@end
+
+@interface MHLManagedObject (MKAnnotation)<MKAnnotation>
+
+@property (nonatomic, assign, readonly) CLLocationCoordinate2D coordinate;
 
 @end
 
-@interface MHLManagedObject(MKAnnotation)<MKAnnotation>
-
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-
-@end
+NS_ASSUME_NONNULL_END

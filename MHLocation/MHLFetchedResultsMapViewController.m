@@ -1,6 +1,6 @@
 //
 //  MHLFetchedResultsMapViewController.m
-//  WiFiFoFum-Passwords
+//  MHLocation
 //
 //  Created by Malcolm Hall on 27/04/2015.
 //  Copyright (c) 2015 Malcolm Hall. All rights reserved.

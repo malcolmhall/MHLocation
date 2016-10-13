@@ -8,21 +8,24 @@
 
 #import "MHLMapTypeBarButtonItem.h"
 
-// a pointer for observing
-static NSString* kMapTypeChangedContext = @"kMapTypeChangedContext";
+static void * const MHLMapTypeBarButtonItemContext = (void *)&MHLMapTypeBarButtonItemContext;
 
-static NSString* const kMapTypeKeyPath = @"mapType";
+static NSString * const kMapTypeKeyPath = @"mapType";
 
-@interface MHLMapTypeBarButtonItem(){
-    BOOL ignoreChange;
-}
-@property (copy) NSString* userDefaultsKey;
+
+
+@interface MHLMapTypeBarButtonItem()
+
+@property (copy) NSString *userDefaultsKey;
+@property (nonatomic, assign) BOOL ignoreChange;
+
 - (void)_segmentChanged:(UISegmentedControl*)sender;
+
 @end
 
 @implementation MHLMapTypeBarButtonItem
 
-- (id)initWithMapView:(MKMapView *)mapView userDefaultsKey:(NSString*)userDefaultsKey{
+- (id)initWithMapView:(MKMapView *)mapView userDefaultsKey:(NSString *)userDefaultsKey{
     self = [super init];
     if (self) {
         self.mapView = mapView;
@@ -33,8 +36,8 @@ static NSString* const kMapTypeKeyPath = @"mapType";
         [sc addTarget:self action:@selector(_segmentChanged:) forControlEvents:UIControlEventValueChanged];
         self.customView = sc;
         //listen for changes to the map's type
-        [mapView addObserver:self forKeyPath:kMapTypeKeyPath options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)
-                                                             context:&kMapTypeChangedContext];
+        [mapView addObserver:self forKeyPath:NSStringFromSelector(@selector(mapType)) options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)
+                                                             context:MHLMapTypeBarButtonItemContext];
         if(userDefaultsKey){
             //set the default map type, this will also cause the segmented index to change.
             mapView.mapType = [[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
@@ -51,12 +54,12 @@ static NSString* const kMapTypeKeyPath = @"mapType";
     return self;
 }
     
-- (id)initWithMapView:(MKMapView *)mapView{
+- (instancetype)initWithMapView:(MKMapView *)mapView{
     return [self initWithMapView:mapView userDefaultsKey:nil];
 }
 
-- (void)_segmentChanged:(UISegmentedControl*)sender {
-    ignoreChange = YES;
+- (void)_segmentChanged:(UISegmentedControl *)sender {
+    self.ignoreChange = YES;
     NSInteger i = sender.selectedSegmentIndex;
     if(i > 0){
         //trick to switch order of satellite and hybrid
@@ -67,7 +70,7 @@ static NSString* const kMapTypeKeyPath = @"mapType";
         [[NSUserDefaults standardUserDefaults] setInteger:i forKey:self.userDefaultsKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    ignoreChange = NO;
+    self.ignoreChange = NO;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
@@ -75,9 +78,8 @@ static NSString* const kMapTypeKeyPath = @"mapType";
                        context:(void *)context
 {
     // if it was our observation
-    if(context == &kMapTypeChangedContext){
-        if (!ignoreChange && [keyPath isEqualToString:kMapTypeKeyPath] )
-        {
+    if(context == MHLMapTypeBarButtonItemContext){
+        if (!self.ignoreChange){
             UISegmentedControl* s = (UISegmentedControl*)self.customView;
             int i = self.mapView.mapType;
             if(i > 0){
@@ -99,9 +101,7 @@ static NSString* const kMapTypeKeyPath = @"mapType";
 
 - (void)dealloc
 {
-    [self.mapView removeObserver:self forKeyPath:kMapTypeKeyPath];
-    self.mapView = nil;
-    self.customView = nil;
+    [_mapView removeObserver:self forKeyPath:NSStringFromSelector(@selector(mapType))];
 }
 
 

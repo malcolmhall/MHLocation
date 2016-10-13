@@ -1,6 +1,6 @@
 //
 //  MapViewController.h
-//  LeoMapDemo2
+//  MHLocation
 //
 //  Created by Malcolm Hall on 10/11/13.
 //  Copyright (c) 2013 Malcolm Hall. All rights reserved.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <MHLocation/MHLDefines.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,10 +30,11 @@ typedef NS_ENUM(NSInteger, MHLAnnotationTablePresentationStyle) {
     MHLAnnotationTablePresentationStyleSheet
 };
 
-extern NSString* const MHShowAnnotationDetailSegueIdentifier; // The default is 'showAnnotationDetail' so set that identifier in the storyboard manual segue.
-extern NSString* const MHAnnotationCellIdentifier; // To use a custom cell in the table view that is hooked up to the outlet use the identifier 'annotation'
+MHLOCATION_EXTERN NSString * const MHShowAnnotationDetailSegueIdentifier; // The default is 'showAnnotationDetail' so set that identifier in the storyboard manual segue.
+MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custom cell in the table view that is hooked up to the outlet use the identifier 'annotation'
 
-@class MHLMapTypeBarButtonItem, MHLAnnotationsTableBarButtonItem;
+@class MHLMapTypeBarButtonItem;
+@class MHLAnnotationsTableBarButtonItem;
 @protocol MHLMapViewControllerDataSource;
 
 @interface MHLMapViewController : UIViewController<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -58,26 +60,26 @@ extern NSString* const MHAnnotationCellIdentifier; // To use a custom cell in th
 // if this is changed while the table is presented the behavior is undefined.
 @property (assign) MHLAnnotationTablePresentationStyle annotationTablePresentationStyle;
 
--(void)presentAnnotationsTable;
+- (void)presentAnnotationsTable;
 
--(void)dismissAnnotationsTable;
+- (void)dismissAnnotationsTable;
 
 // tapping the callout disclousure on a annotation view or the table cell accessory calls this. The default implementation calls performSegueWithIdentifier:MHShowAnnotationDetailSegueIdentifier
 // and catches the exception if it doesn't exist.
--(void)showDetailForAnnotation:(id<MKAnnotation>)annotation;
+- (void)showDetailForAnnotation:(id<MKAnnotation>)annotation;
 
 // override to customise the detail controller. Internally this uses prepareForSegue so if you override that then you must call super.
--(void)prepareForAnnotationDetailViewController:(UIViewController*)viewController annotation:(id<MKAnnotation>)annotation;
+- (void)prepareForAnnotationDetailViewController:(UIViewController*)viewController annotation:(id<MKAnnotation>)annotation;
 
 // If you override prepareForSegue you must call super.
 
 // inserts to table then adds to map. The annotation must have been added to annotations before calling these methods.
 - (void)insertAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 - (void)deleteAnnotations:(NSArray<id<MKAnnotation>>*)annotations atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-- (void)reloadAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+//- (void)reloadAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 
 - (id<MKAnnotation>)annotationAtIndex:(NSUInteger)index;
--(NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation;
+- (NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation;
 - (NSInteger)numberOfAnnotations;
 - (UITableViewCell *)cellForAnnotation:(id<MKAnnotation>)annotation;
 @end

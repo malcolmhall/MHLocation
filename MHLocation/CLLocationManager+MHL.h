@@ -7,11 +7,16 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import <MHLocation/MHLDefines.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CLLocationManager (MHL)
 
 // checks if the Info plist is configured correctly and requests the appropriate authorization depending on plist contents.
 // NSLocationWhenInUseUsageDescription
-+(void)mhl_requestLocationAuthorizationIfNotDetermined;
++ (void)mhl_requestLocationAuthorizationIfNotDetermined;
 
 @end
+
+NS_ASSUME_NONNULL_END

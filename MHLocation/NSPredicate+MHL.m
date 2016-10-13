@@ -10,7 +10,7 @@
 
 @implementation NSPredicate (MHL)
 
-+(NSPredicate*)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString*)keyPrefix{
++ (NSPredicate *)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString *)keyPrefix{
     CLLocationCoordinate2D center = region.center;
     CLLocationCoordinate2D northWestCorner, southEastCorner;
     northWestCorner.latitude  = center.latitude  - (region.span.latitudeDelta  / 2.0);
@@ -18,8 +18,8 @@
     southEastCorner.latitude  = center.latitude  + (region.span.latitudeDelta  / 2.0);
     southEastCorner.longitude = center.longitude - (region.span.longitudeDelta / 2.0);
     
-    NSString* latitudeKey;
-    NSString* longitudeKey;
+    NSString *latitudeKey;
+    NSString *longitudeKey;
     if(keyPrefix){
         latitudeKey = [NSString stringWithFormat:@"%@.latitude", keyPrefix];
         longitudeKey  = [NSString stringWithFormat:@"%@.longitude", keyPrefix];
@@ -31,7 +31,7 @@
     return [NSPredicate predicateWithFormat:@"%K > %f AND %K < %f AND %K > %f AND %K < %f", latitudeKey, northWestCorner.latitude, latitudeKey, southEastCorner.latitude, longitudeKey, southEastCorner.longitude, longitudeKey, northWestCorner.longitude];
 }
 
-+(NSPredicate*)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region{
++ (NSPredicate *)mhl_predicateWithCoordinateRegion:(MKCoordinateRegion)region{
     return [NSPredicate mhl_predicateWithCoordinateRegion:region keyPrefix:nil];
 }
 

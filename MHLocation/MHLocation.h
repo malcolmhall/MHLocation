@@ -6,7 +6,7 @@
 //  Copyright © 2016 Malcolm Hall. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for MHLocation.
 FOUNDATION_EXPORT double MHLocationVersionNumber;
@@ -14,7 +14,8 @@ FOUNDATION_EXPORT double MHLocationVersionNumber;
 //! Project version string for MHLocation.
 FOUNDATION_EXPORT const unsigned char MHLocationVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <MHLocation/PublicHeader.h>
+#import <MHLocation/MHLDefines.h>
+
 #import <MHLocation/MHLManagedObject.h>
 #import <MHLocation/MHLAnnotationDetailSegue.h>
 #import <MHLocation/MHLAnnotationsTableBarButtonItem.h>

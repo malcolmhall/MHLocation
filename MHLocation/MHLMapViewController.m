@@ -1,6 +1,6 @@
 //
 //  MapViewController.m
-//  LeoMapDemo2
+//  MHLocation
 //
 //  Created by Malcolm Hall on 10/11/13.
 //  Copyright (c) 2013 Malcolm Hall. All rights reserved.
@@ -11,20 +11,21 @@
 #import <objc/runtime.h>
 #import "CLLocationManager+MHL.h"
 #import "MHLAnnotationDetailSegue.h"
-#import "UIView+MHU.h"
 
-NSString* const MHShowAnnotationDetailSegueIdentifier = @"showAnnotationDetail";
-NSString* const MHAnnotationCellIdentifier = @"annotation";
+NSString * const MHShowAnnotationDetailSegueIdentifier = @"showAnnotationDetail";
+NSString * const MHAnnotationCellIdentifier = @"annotation";
 
 // Use & of this to get a unique pointer for this class.
-static NSString* kShowsUserLocationChanged = @"kShowsUserLocationChanged";
-static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
+static NSString *kShowsUserLocationChanged = @"kShowsUserLocationChanged";
+static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 
 //private API for getting the list icon instead of including the png as a resource.
 #if defined(JB)
 
 @interface UIImage(UIImagePrivate)
-+(UIImage*)kitImageNamed:(NSString*)named; // UIButtonBarListIcon
+
++ (UIImage *)kitImageNamed:(NSString*)named; // UIButtonBarListIcon
+
 @end
 
 #endif
@@ -77,17 +78,17 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     return 0;
 }
 
--(NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
+- (NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
     return NSNotFound;
 }
 
--(void)awakeFromNib{
+- (void)awakeFromNib{
     [super awakeFromNib];
     // set the default cell reuse identifer here so we can use it internally without copying every time we need it if we were to use an accessor and a nil check.
     _annotationReuseIdentifier = kDefaultAnnotationReuseIdentifier;
 }
 
--(void)showDetailForAnnotation:(id<MKAnnotation>)annotation{
+- (void)showDetailForAnnotation:(id<MKAnnotation>)annotation{
     // do the default segue if exists.
     @try {
         [self performSegueWithIdentifier:MHShowAnnotationDetailSegueIdentifier sender:annotation];
@@ -115,7 +116,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 //}
 
 
--(void)prepareForAnnotationDetailViewController:(UIViewController *)viewController annotation:(id<MKAnnotation>)annotation{
+- (void)prepareForAnnotationDetailViewController:(UIViewController *)viewController annotation:(id<MKAnnotation>)annotation{
     // the default implementatino does nothing
 }
 
@@ -166,7 +167,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 //    return _annotationsTableViewController;
 //}
 
--(MKMapView*)mapView{
+- (MKMapView*)mapView{
     return (MKMapView*)self.view;
 }
 
@@ -224,7 +225,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if([annotation isKindOfClass:[MKUserLocation class]]){
         return nil;
     }
@@ -243,14 +244,14 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     return pin;
 }
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
    
     //NSLog(@"calloutAccessoryControlTapped");
     [self showDetailForAnnotation:view.annotation];
 
 }
 
--(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     // dont select if not showing because it will crash if not loaded yet. It will be selected on first load anyway.
 //    if(!self.presentingAnnotationsTable){
 //        return;
@@ -367,12 +368,12 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     id<MKAnnotation> annotation = [self annotationAtIndex:indexPath.row];
     [self showDetailForAnnotation:annotation];
 }
 
--(void)annotationsTableBarButtonTapped:(id)sender{
+- (void)annotationsTableBarButtonTapped:(id)sender{
     if(self.presentingAnnotationsTable){
         [self dismissAnnotationsTable];
     }else{
@@ -380,11 +381,11 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(void)doneButtonTapped:(id)sender{
+- (void)doneButtonTapped:(id)sender{
     [self dismissAnnotationsTable];
 }
 
--(void)dismissAnnotationsTable{
+- (void)dismissAnnotationsTable{
     self.presentingAnnotationsTable = NO;
     [self willDismissAnnotationsTable];
     if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleModal){
@@ -393,7 +394,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
         }];
     }
     else{
-        UITableView* tableView = self.annotationsTableView;
+        UITableView *tableView = self.annotationsTableView;
         [UIView animateWithDuration:0.3 animations:^{
             self.zeroHeightLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
             self.proportionalHeightLayoutConstraint.priority = UILayoutPriorityDefaultLow;
@@ -403,7 +404,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 }
 
 // fix the map region to take into account the sheet overlaying the map, when setting the center point it will now be a bit higher.
--(void)updateMargin{
+- (void)updateMargin{
     self.mapView.layoutMargins = UIEdgeInsetsMake(8, 8, 8 + self.annotationsTableView.frame.size.height, 8);
 }
 
@@ -416,10 +417,10 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(void)presentAnnotationsTable{
+- (void)presentAnnotationsTable{
     self.presentingAnnotationsTable = YES;
     
-    UITableView* tableView = self.annotationsTableView;
+    UITableView *tableView = self.annotationsTableView;
     if(!tableView){
         tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -437,7 +438,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     tableView.scrollIndicatorInsets = UIEdgeInsetsZero; // fixes scroll indicators getting smaller and smaller.
     
     if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleModal){
-        UITableViewController* a = [[UITableViewController alloc] init];
+        UITableViewController *a = [[UITableViewController alloc] init];
         a.tableView = tableView;
         
         // todo check on this
@@ -468,9 +469,9 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
             }
         }
         
-        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:a];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:a];
         
-        UINavigationController* originatingNavigationController = self.navigationController;
+        UINavigationController *originatingNavigationController = self.navigationController;
         if (originatingNavigationController != nil) {
             navigationController.toolbar.tintColor = originatingNavigationController.toolbar.tintColor;
             navigationController.navigationBar.barStyle = originatingNavigationController.navigationBar.barStyle;
@@ -514,7 +515,11 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
             [tableView layoutIfNeeded];
             
             // since this is the first time also add the blurred background
-            tableView.backgroundView = [tableView mhu_createBlurredBackgroundView];
+            UIVisualEffectView* blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+            blurView.frame = tableView.frame;
+            blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            tableView.backgroundView = blurView;
+            
             tableView.backgroundColor = [UIColor clearColor];
         }
         // present the table expanding from the bottom.
@@ -528,11 +533,11 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(void)willDismissAnnotationsTable{
+- (void)willDismissAnnotationsTable{
 
 }
 
--(void)didDismissAnnotationsTable{
+- (void)didDismissAnnotationsTable{
     
 }
 

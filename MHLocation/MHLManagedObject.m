@@ -1,5 +1,5 @@
 //
-//  Venue+Distance.m
+//  MHLManagedObject.m
 //  MHLocation
 //
 //  Created by Malcolm Hall on 22/04/2015.
@@ -64,7 +64,7 @@
 //   [self _setPrimitiveLocationValue:longitude forKey:@"longitude"];
 //}
 
--(void)setLocation:(CLLocation*)location {
+- (void)setLocation:(CLLocation *)location {
     
     [self willChangeValueForKey:@"location"];
     
@@ -80,7 +80,7 @@
     [self didChangeValueForKey:@"location"];
 }
 
--(CLLocation*)location {
+- (CLLocation *)location {
     
     [self willAccessValueForKey:@"location"];
     
@@ -107,7 +107,7 @@
 }
 
 // used by MKAnnotation, we also have the required key-value observing methods above to notify the map when the location has changed so it can ask for the new coordinate.
--(CLLocationCoordinate2D)coordinate{
+- (CLLocationCoordinate2D)coordinate{
     return self.location.coordinate;
 }
 

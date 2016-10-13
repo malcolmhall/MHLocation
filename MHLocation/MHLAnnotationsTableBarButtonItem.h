@@ -1,4 +1,10 @@
-
+//
+//  MHLAnnotationsTableBarButtonItem.h
+//  MHLocation
+//
+//  Created by Malcolm Hall on 20/07/2015.
+//  Copyright (c) 2015 Malcolm Hall. All rights reserved.
+//
 
 // This gives you a button you can put on a map view view controller that gives a modal table view of the map annotations.
 // just add self.mapView.annotationsTableButtonItem to the toolbar items array.
@@ -30,31 +36,34 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <MHLocation/MHLDefines.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol MHLAnnotationsTableBarButtonItemDelegate;
 
 @interface MHLAnnotationsTableBarButtonItem : UIBarButtonItem
 
-- (id)initWithMapView:(MKMapView*)mapView image:(UIImage*)image;
+- (id)initWithMapView:(MKMapView *)mapView image:(UIImage *)image;
 
 //uses private kitImageNamed: UIButtonBarListIcon
-- (id)initWithMapView:(MKMapView*)mapView;
+- (id)initWithMapView:(MKMapView *)mapView;
 
-@property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, strong) MKMapView *mapView;
 
-@property (readonly) UINavigationController *navigationController;
+@property (nonatomic, strong, readonly) UINavigationController *navigationController;
 
 @end
-
-
 
 @protocol MKMapViewAnnotationsTableDelegate <MKMapViewDelegate>
 
 @optional
 //supply a custom set of annotations e.g. an array removing the MKUserLocationAnnotation
--(NSArray*)annotationsForAnnotationsTableViewController:(UITableViewController*)tableViewController;
+- (NSArray *)annotationsForAnnotationsTableViewController:(UITableViewController *)tableViewController;
 
 //supply an image for the annotation to support showing images for off-map annotation views.
--(UIImage*)imageForAnnotation:(id<MKAnnotation>)annotation;
+- (UIImage *)imageForAnnotation:(id<MKAnnotation>)annotation;
 
 @end
+
+NS_ASSUME_NONNULL_END
