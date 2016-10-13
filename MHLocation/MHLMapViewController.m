@@ -11,7 +11,7 @@
 #import <objc/runtime.h>
 #import "CLLocationManager+MHL.h"
 #import "MHLAnnotationDetailSegue.h"
-//#import "UIView+MH.h"
+#import "UIView+MHU.h"
 
 NSString* const MHShowAnnotationDetailSegueIdentifier = @"showAnnotationDetail";
 NSString* const MHAnnotationCellIdentifier = @"annotation";
@@ -245,7 +245,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
    
-    NSLog(@"calloutAccessoryControlTapped");
+    //NSLog(@"calloutAccessoryControlTapped");
     [self showDetailForAnnotation:view.annotation];
 
 }
@@ -514,7 +514,7 @@ static NSString* kDefaultAnnotationReuseIdentifier = @"Annotation";
             [tableView layoutIfNeeded];
             
             // since this is the first time also add the blurred background
-            //tableView.backgroundView = [tableView mh_createBlurredBackgroundView];
+            tableView.backgroundView = [tableView mhu_createBlurredBackgroundView];
             tableView.backgroundColor = [UIColor clearColor];
         }
         // present the table expanding from the bottom.

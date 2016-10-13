@@ -10,31 +10,35 @@
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MHLFetchedResultsMapViewController : MHLMapViewController<NSFetchedResultsControllerDelegate>
 
-// returns "Cell" if not set.
-@property (nonatomic, copy) NSString* annotationViewIdentifier;
+// The default value is "Cell".
+@property (nonatomic, copy) NSString *annotationViewIdentifier;
 
-@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong, nullable) NSFetchedResultsController *fetchedResultsController;
 
-@property (strong) NSString* keyPrefix;
+@property (nonatomic, strong, nullable) NSString *keyPrefix;
 
-// unimplemented
-@property (assign) BOOL limitFetchToMapRegion;
+// not implemented
+@property (nonatomic, assign) BOOL limitFetchToMapRegion;
 
 // override to update the query
--(NSPredicate*)predicateForCoordinateRegion:(MKCoordinateRegion)region;
+- (NSPredicate *)predicateForCoordinateRegion:(MKCoordinateRegion)region;
 
 // override to configure the view.
--(void)configureAnnotationView:(MKAnnotationView*)annotationView annotation:(id<MKAnnotation>)annotation;
+- (void)configureAnnotationView:(MKAnnotationView *)annotationView annotation:(id<MKAnnotation>)annotation;
 
 // defaults to allowing delete.
--(void)commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forObject:(NSManagedObject*)object;
+- (void)commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forObject:(NSManagedObject *)object;
 
 // defaults to YES.
--(BOOL)canEditObject:(NSManagedObject*)managedObject;
+- (BOOL)canEditObject:(NSManagedObject *)managedObject;
 
 // defaults to delete and saves context.
--(void)deleteObject:(NSManagedObject*)managedObject;
+- (void)deleteObject:(NSManagedObject *)managedObject;
 
 @end
+
+NS_ASSUME_NONNULL_END

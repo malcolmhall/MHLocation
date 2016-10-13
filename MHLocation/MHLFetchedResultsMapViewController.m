@@ -18,8 +18,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 @end
 
 @implementation MHLFetchedResultsMapViewController{
-    NSFetchedResultsController* _fetchedResultsController;
-    NSFetchRequest* _fetchRequest;
+    //NSFetchRequest* _fetchRequest;
     MKCoordinateRegion _lastCoordinateRegion;
 }
 
@@ -306,7 +305,6 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
  */
 
 -(void)dealloc{
-    NSLog(@"dealloc");
     _fetchedResultsController.delegate = nil;
     _fetchedResultsController = nil;
 }
