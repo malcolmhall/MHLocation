@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for MHLocation.
-FOUNDATION_EXPORT double MHLocationVersionNumber;
-
-//! Project version string for MHLocation.
-FOUNDATION_EXPORT const unsigned char MHLocationVersionString[];
-
 #import <MHLocation/MHLDefines.h>
 
 #import <MHLocation/MHLManagedObject.h>
@@ -28,3 +22,4 @@ FOUNDATION_EXPORT const unsigned char MHLocationVersionString[];
 
 #import <MHLocation/CLLocationManager+MHL.h>
 #import <MHLocation/NSPredicate+MHL.h>
+

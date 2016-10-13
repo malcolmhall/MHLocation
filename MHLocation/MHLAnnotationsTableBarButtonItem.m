@@ -12,7 +12,7 @@
 
 @property (strong) UINavigationController *navigationController;
 @property (strong) NSArray* annotations;
-@property (strong) UIPopoverController* popover;
+@property (strong) UIPopoverController *popover;
 
 - (UIViewController *)_viewControllerContainingView:(UIView *)view;
 

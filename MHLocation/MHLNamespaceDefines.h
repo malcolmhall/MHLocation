@@ -21,6 +21,4 @@
     #define mhl_predicateWithCoordinateRegion __MHLOCATION_NS_SYMBOL(mhl_predicateWithCoordinateRegion)
     #define mhl_requestLocationAuthorizationIfNotDetermined __MHLOCATION_NS_SYMBOL(mhl_requestLocationAuthorizationIfNotDetermined)
 // Externs
-    #define MHLocationVersionNumber __MHLOCATION_NS_SYMBOL(MHLocationVersionNumber)
-    #define MHLocationVersionString __MHLOCATION_NS_SYMBOL(MHLocationVersionString)
 #endif

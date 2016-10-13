@@ -44,10 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MHLAnnotationsTableBarButtonItem : UIBarButtonItem
 
-- (id)initWithMapView:(MKMapView *)mapView image:(UIImage *)image;
+- (instancetype)initWithMapView:(MKMapView *)mapView image:(nullable UIImage *)image;
 
 //uses private kitImageNamed: UIButtonBarListIcon
-- (id)initWithMapView:(MKMapView *)mapView;
+- (instancetype)initWithMapView:(MKMapView *)mapView;
 
 @property (nonatomic, strong) MKMapView *mapView;
 
