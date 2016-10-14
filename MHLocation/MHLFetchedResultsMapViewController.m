@@ -146,7 +146,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
         // todo only if annotation has a title
         view.canShowCallout = YES;
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        UIImage *image = [[UIImage imageNamed:@"DisclosureArrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *image = [[UIImage imageNamed:@"DisclosureArrow" inBundle:[NSBundle bundleForClass:MHLFetchedResultsMapViewController.class] compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [rightButton setImage:image forState:UIControlStateNormal];
         [rightButton sizeToFit];
         view.rightCalloutAccessoryView = rightButton;

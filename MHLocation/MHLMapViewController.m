@@ -234,7 +234,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:_annotationReuseIdentifier];
         // add button if necessary
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        UIImage *image = [[UIImage imageNamed:@"DisclosureArrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *image = [[UIImage imageNamed:@"DisclosureArrow" inBundle:[NSBundle bundleForClass:MHLMapViewController.class] compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [rightButton setImage:image forState:UIControlStateNormal];
         [rightButton sizeToFit];
         pin.rightCalloutAccessoryView = rightButton;
