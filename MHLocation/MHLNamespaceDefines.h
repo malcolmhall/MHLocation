@@ -2,7 +2,7 @@
 //  MHLNamespaceDefines.h
 //  MHLocation
 //
-//  Generated using MHNamespaceGenerator on 13/10/2016
+//  Generated using MHNamespaceGenerator on 14/10/2016
 //
 
 #if !defined(__MHLOCATION_NS_SYMBOL) && defined(MHLOCATION_NAMESPACE)

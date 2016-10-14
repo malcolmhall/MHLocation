@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		EC6759821DB145E200838798 /* Namespace */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = EC6759851DB145E200838798 /* Build configuration list for PBXAggregateTarget "Namespace" */;
+			buildPhases = (
+				EC6759861DB145F000838798 /* ShellScript */,
+			);
+			dependencies = (
+				EC6759881DB145FA00838798 /* PBXTargetDependency */,
+			);
+			name = Namespace;
+			productName = Namespace;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		EC3144911D073C610025F669 /* MHLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144901D073C610025F669 /* MHLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144981D073C610025F669 /* MHLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC31448D1D073C610025F669 /* MHLocation.framework */; };
@@ -36,6 +51,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		EC3144991D073C610025F669 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3144841D073C610025F669 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC31448C1D073C610025F669;
+			remoteInfo = MHLocation;
+		};
+		EC6759871DB145FA00838798 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC3144841D073C610025F669 /* Project object */;
 			proxyType = 1;
@@ -183,7 +205,6 @@
 			buildPhases = (
 				EC3144881D073C610025F669 /* Sources */,
 				EC3144891D073C610025F669 /* Frameworks */,
-				EC6758721DAFDEE500838798 /* ShellScript */,
 				EC31448A1D073C610025F669 /* Headers */,
 				EC31448B1D073C610025F669 /* Resources */,
 			);
@@ -229,6 +250,9 @@
 					EC3144961D073C610025F669 = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					EC6759821DB145E200838798 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 				};
 			};
 			buildConfigurationList = EC3144871D073C610025F669 /* Build configuration list for PBXProject "MHLocation" */;
@@ -245,6 +269,7 @@
 			targets = (
 				EC31448C1D073C610025F669 /* MHLocation */,
 				EC3144961D073C610025F669 /* MHLocationTests */,
+				EC6759821DB145E200838798 /* Namespace */,
 			);
 		};
 /* End PBXProject section */
@@ -268,7 +293,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EC6758721DAFDEE500838798 /* ShellScript */ = {
+		EC6759861DB145F000838798 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,7 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "dependencies/MHNamespaceGenerator/script.sh MHLocation MHL";
+			shellScript = "dependencies/MHNamespaceGenerator/script.sh MHLocation.framework MHLocation MHL";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -316,6 +341,11 @@
 			isa = PBXTargetDependency;
 			target = EC31448C1D073C610025F669 /* MHLocation */;
 			targetProxy = EC3144991D073C610025F669 /* PBXContainerItemProxy */;
+		};
+		EC6759881DB145FA00838798 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC31448C1D073C610025F669 /* MHLocation */;
+			targetProxy = EC6759871DB145FA00838798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,6 +486,20 @@
 			};
 			name = Release;
 		};
+		EC6759831DB145E200838798 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC6759841DB145E200838798 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -485,6 +529,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EC6759851DB145E200838798 /* Build configuration list for PBXAggregateTarget "Namespace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC6759831DB145E200838798 /* Debug */,
+				EC6759841DB145E200838798 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
