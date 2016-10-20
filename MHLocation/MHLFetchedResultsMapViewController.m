@@ -27,10 +27,6 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     self.limitFetchToMapRegion = NO;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-
 -(void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController{
     _fetchedResultsController = fetchedResultsController;
     _fetchedResultsController.delegate = self;
@@ -177,7 +173,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    if(controller != _fetchedResultsController){
+    if(controller != self.fetchedResultsController){
         return;
     }
     // begin updates
@@ -188,7 +184,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    if(controller != _fetchedResultsController){
+    if(controller != self.fetchedResultsController){
         return;
     }
     switch(type) {
@@ -231,7 +227,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    if(controller != _fetchedResultsController){
+    if(controller != self.fetchedResultsController){
         return;
     }
     // end updates

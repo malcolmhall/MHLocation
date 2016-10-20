@@ -278,14 +278,6 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
     self.mapView.delegate = self;
     
-    
-    // create a default table if one wasn't set.
-    if(!self.annotationsTableView){
-        self.annotationsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        self.annotationsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    }
-    
     self.userTrackingBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     self.mapTypeBarButtonItem = [[MHLMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
     
@@ -419,7 +411,8 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     // after its loaded select the cell so if they override cellForAnnotation they don't need to set selected.
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(tableViewDidLoadRows:) object:tableView];
     [self performSelector:@selector(tableViewDidLoadRows:) withObject:tableView afterDelay:0];
-    return [self numberOfAnnotations];
+    NSInteger i = [self numberOfAnnotations];
+    return i;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -530,6 +523,14 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     self.presentingAnnotationsTable = YES;
     
     UITableView *tableView = self.annotationsTableView;
+    
+    // create a default table if one wasn't set.
+    if(!tableView){
+        tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.annotationsTableView = tableView;
+    }
     
     // ensure we are the datasource and the delegate.
     tableView.dataSource = self;

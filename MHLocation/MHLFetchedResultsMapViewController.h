@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteObject:(NSManagedObject *)managedObject;
 
 // calls performFetch then reloadData.
--(BOOL)reloadData:(NSError **)error;
+- (BOOL)reloadData:(NSError **)error;
 
 @end
 

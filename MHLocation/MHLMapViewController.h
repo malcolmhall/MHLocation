@@ -51,7 +51,7 @@ MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custo
 @property (nonatomic, copy) NSString *annotationReuseIdentifier;
 
 // a default table view will be created if one isn't set in the storyboard, hence strong.
-@property (nonatomic, strong) IBOutlet UITableView *annotationsTableView;
+@property (nonatomic, weak) IBOutlet UITableView *annotationsTableView;
 
 // if this is changed while the table is presented the behavior is undefined.
 @property (nonatomic, assign) MHLannotationsTablePresentationStyle annotationsTablePresentationStyle;
