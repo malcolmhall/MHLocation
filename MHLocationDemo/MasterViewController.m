@@ -40,7 +40,7 @@
         [self.objects addObject:annotation];
     }
     
-   // self.annotationsTablePresentationStyle = MHLAnnotationsTablePresentationStyleSheet;
+    self.annotationsTablePresentationStyle = MHLAnnotationsTablePresentationStyleSheet;
 }
 
 -(NSInteger)numberOfAnnotations{
