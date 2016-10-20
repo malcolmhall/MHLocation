@@ -12,6 +12,7 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
+@property (nonatomic, strong) MHLMapTypeBarButtonItem *item;
 @end
 
 @implementation MasterViewController
@@ -24,10 +25,42 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    MHLMapTypeBarButtonItem *item = [[MHLMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
+    item.target = self;
+    item.action = @selector(changed);
+    //self.toolbarItems = @[item];
+    
+    self.objects = [NSMutableArray array];
+    
+    for(int i=0;i<20;i++){
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = CLLocationCoordinate2DMake(54, -4);
+        annotation.title = @"Test annotation";
+        [self.objects addObject:annotation];
+    }
+    
+   // self.annotationsTablePresentationStyle = MHLAnnotationsTablePresentationStyleSheet;
+}
+
+-(NSInteger)numberOfAnnotations{
+    return self.objects.count;
+}
+
+-(id<MKAnnotation>)annotationAtIndex:(NSUInteger)index{
+    return self.objects[index];
+}
+
+- (NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
+    return [self.objects indexOfObject:annotation];
+}
+
+-(void)changed{
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+    //self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
 }
 
@@ -42,24 +75,25 @@
     }
     [self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+//        NSIndexPath *indexPath nil;= [self.tableView indexPathForSelectedRow];
+//        NSDate *object = self.objects[indexPath.row];
+//        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+//        [controller setDetailItem:object];
+//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+//        controller.navigationItem.leftItemsSupplementBackButton = YES;
+//    }
+//}
 
 #pragma mark - Table View
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -89,5 +123,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
+*/
 
 @end

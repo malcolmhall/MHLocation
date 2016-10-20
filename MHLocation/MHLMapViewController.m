@@ -10,17 +10,31 @@
 #import "MHLMapTypeBarButtonItem.h"
 #import <objc/runtime.h>
 #import "CLLocationManager+MHL.h"
-#import "MHLAnnotationDetailSegue.h"
+#import "MHLAnnotationSegue.h"
 
-NSString * const MHShowAnnotationDetailSegueIdentifier = @"showAnnotationDetail";
+NSString * const MHShowAnnotationSegueIdentifier = @"showAnnotation";
 NSString * const MHAnnotationCellIdentifier = @"annotation";
 
 // Use & of this to get a unique pointer for this class.
-static NSString *kShowsUserLocationChanged = @"kShowsUserLocationChanged";
-static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
+static void * const kMHLMapViewControllerContext = (void *)&kMHLMapViewControllerContext;
+static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
+
+@interface MHLMapViewControllerLayoutGuide : NSObject <UILayoutSupport>
+@property (nonatomic, assign) CGFloat tableHeight;
+@property (nonatomic, assign) CGFloat bottomLayoutGuideLength;
+@property (nonatomic, strong) NSLayoutYAxisAnchor *topAnchor;
+@property (nonatomic, strong) NSLayoutYAxisAnchor *bottomAnchor;
+@property (nonatomic, strong) NSLayoutDimension *heightAnchor;
+@end
+
+@implementation MHLMapViewControllerLayoutGuide
+-(CGFloat)length{
+    return self.tableHeight + self.bottomLayoutGuideLength;
+}
+@end
 
 //private API for getting the list icon instead of including the png as a resource.
-#if defined(JB)
+#if MHLOCATION_USE_PRIVATE_API == 1
 
 @interface UIImage(UIImagePrivate)
 
@@ -54,21 +68,43 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 //
 //@end
 
-
 @interface MHLMapViewController()
 
-@property (nonatomic, readwrite) MHLMapTypeBarButtonItem* mapTypeBarButtonItem;
-@property (nonatomic, readwrite) MKUserTrackingBarButtonItem* userTrackingBarButtonItem;
-@property (nonatomic, readwrite) UIBarButtonItem* annotationsTableBarButtonItem;
-@property (nonatomic, readwrite) NSArray<UIBarButtonItem*>* defaultToolBarItems;
-@property (nonatomic) BOOL presentingAnnotationsTable;
-@property (nonatomic) NSMutableArray<id<MKAnnotation>> *sections;
-@property (nonatomic) NSLayoutConstraint* zeroHeightLayoutConstraint;
-@property (nonatomic) NSLayoutConstraint* proportionalHeightLayoutConstraint;
+@property (nonatomic, strong, readwrite) MHLMapTypeBarButtonItem *mapTypeBarButtonItem;
+@property (nonatomic, strong, readwrite) MKUserTrackingBarButtonItem *userTrackingBarButtonItem;
+@property (nonatomic, strong, readwrite) UIBarButtonItem *annotationsTableBarButtonItem;
+@property (nonatomic, strong, readwrite) NSArray<UIBarButtonItem *> *defaultToolBarItems;
+@property (nonatomic, assign) BOOL presentingAnnotationsTable;
+@property (nonatomic, strong) NSLayoutConstraint *zeroHeightLayoutConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *proportionalHeightLayoutConstraint;
+
+@property (nonatomic, strong) MHLMapViewControllerLayoutGuide *mvcLayoutGuide;
 
 @end
 
 @implementation MHLMapViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle{
+    self = [super initWithNibName:nibName bundle:bundle];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    // set the default cell reuse identifer here so we can use it internally without copying every time we need it if we were to use an accessor and a nil check.
+    self.annotationReuseIdentifier = kDefaultAnnotationReuseIdentifier;
+    //self.annotations = [NSMutableArray array];
+    self.mvcLayoutGuide = [[MHLMapViewControllerLayoutGuide alloc] init];
+}
 
 -(id<MKAnnotation>)annotationAtIndex:(NSUInteger)index{
     return nil;
@@ -82,25 +118,19 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
     return NSNotFound;
 }
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
-    // set the default cell reuse identifer here so we can use it internally without copying every time we need it if we were to use an accessor and a nil check.
-    _annotationReuseIdentifier = kDefaultAnnotationReuseIdentifier;
-}
 
 - (void)showDetailForAnnotation:(id<MKAnnotation>)annotation{
     // do the default segue if exists.
     @try {
-        [self performSegueWithIdentifier:MHShowAnnotationDetailSegueIdentifier sender:annotation];
+        [self performSegueWithIdentifier:MHShowAnnotationSegueIdentifier sender:annotation];
     }
     @catch (NSException *exception) {
-        NSLog(@"Warning you must hookup a custom segue to a detail view controller with class %@ and identifier %@", NSStringFromClass([MHLAnnotationDetailSegue class]), MHShowAnnotationDetailSegueIdentifier);
-//        NSLog(@"exception %@", exception);
+        NSLog(@"Warning you must hookup a custom segue to a detail view controller with class %@ and identifier %@", NSStringFromClass([MHLAnnotationSegue class]), MHShowAnnotationSegueIdentifier);
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender{
-    if([segue.identifier isEqualToString:MHShowAnnotationDetailSegueIdentifier]){
+    if([segue.identifier isEqualToString:MHShowAnnotationSegueIdentifier]){
         [self prepareForAnnotationDetailViewController:segue.destinationViewController annotation:sender];
     }
     // allow interaction after we have prevented possible duplicate taps
@@ -122,9 +152,9 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 
 - (void)insertAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths{
     // convert to table index paths
-    NSMutableArray* fixedIndexPaths = [NSMutableArray array];
-    NSMutableArray* annotations = [NSMutableArray array];
-    for(NSIndexPath* indexPath in indexPaths){
+    NSMutableArray *fixedIndexPaths = [NSMutableArray array];
+    NSMutableArray *annotations = [NSMutableArray array];
+    for(NSIndexPath *indexPath in indexPaths){
         NSInteger index = [indexPath indexAtPosition:0];
         // add to array for table
         [fixedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
@@ -167,8 +197,66 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 //    return _annotationsTableViewController;
 //}
 
-- (MKMapView*)mapView{
-    return (MKMapView*)self.view;
+- (MKMapView *)mapView{
+    return (MKMapView *)self.view;
+}
+
+
+-(void)reloadData{
+    
+    NSInteger number = [self numberOfAnnotations];
+    NSMutableArray *annotations = [NSMutableArray array];
+    for(NSInteger i=0;i<number;i++){
+        id<MKAnnotation> annotation = [self annotationAtIndex:i];
+        if(annotation){
+            [annotations addObject:annotation];
+        }
+    }
+    
+    NSMutableArray* removeAnnotations = [NSMutableArray array];
+    NSMutableArray* addAnnotations = [NSMutableArray array];
+    
+    // find the annotations to remove from the map
+    for(id<MKAnnotation> annotation in self.mapView.annotations){
+        // todo check if kind of class that that the results controller is supposed to be returning.
+        if([annotation isEqual:self.mapView.userLocation]){
+            // do nothing with user
+        }
+        else if([annotations containsObject:annotation]){
+            // already on map
+        }else{
+            [removeAnnotations addObject:annotation];
+        }
+    }
+    // find the annotations to add to the map
+    for(id<MKAnnotation> annotation in annotations){
+        if([self.mapView.annotations containsObject:annotation]){
+            // already on the map
+        }
+        else{
+            [addAnnotations addObject:annotation];
+        }
+    }
+    
+    [self.mapView removeAnnotations:removeAnnotations];
+    [self.mapView addAnnotations:addAnnotations];
+    [self.annotationsTableView reloadData];
+}
+
+- (BOOL)canPerformShowAnnotationDetailSegue
+{
+#if MHLOCATION_USE_PRIVATE_API == 1
+    static BOOL kCanPerformShowAnnotationDetailSegue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSArray *segueTemplates = [self valueForKey:@"storyboardSegueTemplates"];
+        NSArray *filteredArray = [segueTemplates filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier = %@ AND segueClassName = %@", MHShowAnnotationSegueIdentifier, NSStringFromClass(MHLAnnotationSegue.class)]];
+        kCanPerformShowAnnotationDetailSegue = filteredArray.count > 0;
+    });
+    return kCanPerformShowAnnotationDetailSegue;
+#else
+    return YES; // the exception will be caught if the manual segue was not configured correctly
+#endif
 }
 
 - (void)viewDidLoad
@@ -185,59 +273,77 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
             self.view = [[MKMapView alloc] initWithFrame:CGRectZero];
         }else{
             // todo: make a proper exception.
-            [NSException raise:@"MapViewController didn't find a map view" format:@"Found a %@. Check the storyboard view controller has had its default view swapped to a map", self.view.class];
+            [NSException raise:@"MapViewController already has a view that is not a map view" format:@"Found a %@. Either remove this view from the storyboard or replace it with a map view", self.view.class];
         }
     }
-
+    self.mapView.delegate = self;
+    
+    
+    // create a default table if one wasn't set.
+    if(!self.annotationsTableView){
+        self.annotationsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        self.annotationsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
     self.userTrackingBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
-
-    // save it to defaults
-    self.mapTypeBarButtonItem = [[MHLMapTypeBarButtonItem alloc] initWithMapView:self.mapView userDefaultsKey:@"DLMapType"];
+    self.mapTypeBarButtonItem = [[MHLMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
     
     // find a default image if one wasn't set
-    UIImage* image;
-#if defined(JB)
+    UIImage *image;
+#if MHLOCATION_USE_PRIVATE_API == 1
+        // get the image that shows a list icon from UIKit.
         image = [UIImage kitImageNamed:@"UIButtonBarListIcon"];
 #else
-        image = [UIImage imageNamed:@"UIButtonBarListIcon"];
+        image = [UIImage imageNamed:@"UIButtonBarListIcon" inBundle:[NSBundle bundleForClass:MHLMapViewController.class] compatibleWithTraitCollection:nil];
 #endif
     
+    // safety in case for some reason the image wasn't in the bundle.
     if(image){
         self.annotationsTableBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(annotationsTableBarButtonTapped:)];
     }else{
         self.annotationsTableBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(annotationsTableBarButtonTapped:)];
     }
 
-    UIBarButtonItem* spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     self.defaultToolBarItems = @[self.userTrackingBarButtonItem, spacer1, self.mapTypeBarButtonItem, spacer2, self.annotationsTableBarButtonItem];
-    self.toolbarItems = self.defaultToolBarItems;
+    
+    // set items if there are none already.
+    if(!self.toolbarItems.count){
+        self.toolbarItems = self.defaultToolBarItems;
+    }
     
     // When they tap the tracking button request authorization
     [self.mapView addObserver:self
-                   forKeyPath:@"showsUserLocation"
+                   forKeyPath:NSStringFromSelector(@selector(showsUserLocation))
                       options:(NSKeyValueObservingOptionNew |
                                NSKeyValueObservingOptionOld)
-                      context:&kShowsUserLocationChanged];
+                      context:kMHLMapViewControllerContext];
     
     if(self.mapView.showsUserLocation){
         [CLLocationManager mhl_requestLocationAuthorizationIfNotDetermined];
     }
+    
+    // reload after subclass has done viewDidLoad
+    [self performSelector:@selector(reloadData) withObject:nil afterDelay:0];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if([annotation isKindOfClass:[MKUserLocation class]]){
         return nil;
     }
-    MKPinAnnotationView* pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:_annotationReuseIdentifier];
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:_annotationReuseIdentifier];
     if(!pin){
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:_annotationReuseIdentifier];
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:self.annotationReuseIdentifier];
         // add button if necessary
-        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        UIImage *image = [[UIImage imageNamed:@"DisclosureArrow" inBundle:[NSBundle bundleForClass:MHLMapViewController.class] compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        [rightButton setImage:image forState:UIControlStateNormal];
-        [rightButton sizeToFit];
-        pin.rightCalloutAccessoryView = rightButton;
+        if([self canPerformShowAnnotationDetailSegue]){
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            UIImage *image = [[UIImage imageNamed:@"DisclosureArrow" inBundle:[NSBundle bundleForClass:MHLMapViewController.class] compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            [rightButton setImage:image forState:UIControlStateNormal];
+            [rightButton sizeToFit];
+            pin.rightCalloutAccessoryView = rightButton;
+        }
     }
     pin.annotation = annotation;
     pin.canShowCallout = annotation.title ? YES : NO;
@@ -245,10 +351,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-   
-    //NSLog(@"calloutAccessoryControlTapped");
     [self showDetailForAnnotation:view.annotation];
-
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
@@ -279,10 +382,12 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
                         change:(NSDictionary *)change
                        context:(void *)context {
     // if it was our observation
-    if(context == &kShowsUserLocationChanged){
+    if(context == kMHLMapViewControllerContext){
+        //if([keyPath isEqualToString:NSStringFromSelector(@selector(showsUserLocation))]){
         if([[change objectForKey:NSKeyValueChangeNewKey] boolValue]){
             [CLLocationManager mhl_requestLocationAuthorizationIfNotDetermined];
         }
+        //}
     }
     else{
         // if necessary, pass the method up the subclass hierarchy.
@@ -295,7 +400,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
     }
 }
 
--(void)_tableViewDidLoadRows:(UITableView*)tableView{
+-(void)tableViewDidLoadRows:(UITableView *)tableView{
     if(self.mapView.selectedAnnotations.count){
         NSInteger index = [self indexOfAnnotation:self.mapView.selectedAnnotations.firstObject];
         [self.annotationsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
@@ -312,8 +417,8 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // after its loaded select the cell so if they override cellForAnnotation they don't need to set selected.
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_tableViewDidLoadRows:) object:tableView];
-    [self performSelector:@selector(_tableViewDidLoadRows:) withObject:tableView afterDelay:0];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(tableViewDidLoadRows:) object:tableView];
+    [self performSelector:@selector(tableViewDidLoadRows:) withObject:tableView afterDelay:0];
     return [self numberOfAnnotations];
 }
 
@@ -341,13 +446,11 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
     UITableViewCell *cell = [self.annotationsTableView dequeueReusableCellWithIdentifier:MHAnnotationCellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MHAnnotationCellIdentifier];
-        //only add the detail accessorty if there is a detail segue which is impossible to find out.
-        //        if([self.mapView.delegate respondsToSelector:@selector(mapView:annotationView:calloutAccessoryControlTapped:)]){
-        cell.accessoryType = UITableViewCellAccessoryDetailButton;
-        cell.backgroundColor = [UIColor clearColor];
-        //      }
+        if([self canPerformShowAnnotationDetailSegue]){
+            cell.accessoryType = UITableViewCellAccessoryDetailButton;
+            cell.backgroundColor = [UIColor clearColor];
+        }
     }
-    
     cell.textLabel.text = annotation.title;
     cell.detailTextLabel.text = annotation.subtitle;
     
@@ -363,7 +466,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
     //[self.mapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 50.0, 50.0f) animated:NO];
     [self.mapView setCenterCoordinate:annotation.coordinate animated:YES];
     // only dismiss if its full screen.
-    if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleModal){
+    if(self.annotationsTablePresentationStyle == MHLannotationsTablePresentationStyleModal){
         [self dismissAnnotationsTable];
     }
 }
@@ -388,7 +491,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 - (void)dismissAnnotationsTable{
     self.presentingAnnotationsTable = NO;
     [self willDismissAnnotationsTable];
-    if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleModal){
+    if(self.annotationsTablePresentationStyle == MHLannotationsTablePresentationStyleModal){
         [self dismissViewControllerAnimated:YES completion:^{
             [self didDismissAnnotationsTable];
         }];
@@ -398,46 +501,44 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
         [UIView animateWithDuration:0.3 animations:^{
             self.zeroHeightLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
             self.proportionalHeightLayoutConstraint.priority = UILayoutPriorityDefaultLow;
-            [tableView layoutIfNeeded];
+            [tableView layoutIfNeeded]; // animate to the new frame
         }];
     }
 }
 
-// fix the map region to take into account the sheet overlaying the map, when setting the center point it will now be a bit higher.
-- (void)updateMargin{
-    self.mapView.layoutMargins = UIEdgeInsetsMake(8, 8, 8 + self.annotationsTableView.frame.size.height, 8);
+- (void)viewDidLayoutSubviews {
+    // iOS 9 fix, the problem was the bottomLayoutGuide was requested before the table's frame has changed to the new height after rotation.
+    if(self.mvcLayoutGuide.tableHeight != self.annotationsTableView.frame.size.height){
+        [self.mapView performSelector:@selector(setNeedsLayout) withObject:nil afterDelay:1];
+    }
 }
 
-- (void)viewWillLayoutSubviews{
-//    if(self.navigationController.toolbarHidden){
-//        [self.tableView mh_setHidden:YES animated:YES completion:nil];
-//    }
-    if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleSheet){
-        [self updateMargin];
-    }
+-(id<UILayoutSupport>)bottomLayoutGuide{
+    
+    id<UILayoutSupport> i = [super bottomLayoutGuide];
+
+    self.mvcLayoutGuide.bottomAnchor = i.bottomAnchor;
+    self.mvcLayoutGuide.topAnchor = i.topAnchor;
+    self.mvcLayoutGuide.heightAnchor = i.heightAnchor;
+    self.mvcLayoutGuide.bottomLayoutGuideLength = [i length];
+    self.mvcLayoutGuide.tableHeight = self.annotationsTableView.frame.size.height;
+    
+    return self.mvcLayoutGuide;
 }
 
 - (void)presentAnnotationsTable{
     self.presentingAnnotationsTable = YES;
     
     UITableView *tableView = self.annotationsTableView;
-    if(!tableView){
-        tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.annotationsTableView = tableView;
-    }
+    
+    // ensure we are the datasource and the delegate.
     tableView.dataSource = self;
-    // if the table has been shown before then it needs reloaded to show anything new.
-//    if(tableView.delegate == self){
-//        [tableView reloadData];
-//    }else{
     tableView.delegate = self;
-//    }
+
     tableView.contentInset = UIEdgeInsetsZero; // fixes white gap that gets bigger every time its shown.
     tableView.scrollIndicatorInsets = UIEdgeInsetsZero; // fixes scroll indicators getting smaller and smaller.
     
-    if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleModal){
+    if(self.annotationsTablePresentationStyle == MHLannotationsTablePresentationStyleModal){
         UITableViewController *a = [[UITableViewController alloc] init];
         a.tableView = tableView;
         
@@ -491,12 +592,13 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
     //    [self presentViewController:navigationController animated:YES completion:nil];
         [self showDetailViewController:navigationController sender:self];
     }
-    else if(self.annotationTablePresentationStyle == MHLAnnotationTablePresentationStyleSheet){
+    else if(self.annotationsTablePresentationStyle == MHLAnnotationsTablePresentationStyleSheet){
         [self.view addSubview:tableView];
         if(!tableView.constraints.count){
-            NSLayoutConstraint* leading = [tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
-            NSLayoutConstraint* trailing = [tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor];
-            NSLayoutConstraint* bottom = [tableView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor];
+            NSLayoutConstraint *leading = [tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
+            NSLayoutConstraint *trailing = [tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor];
+            NSLayoutConstraint *bottom = [tableView.bottomAnchor constraintEqualToAnchor:super.bottomLayoutGuide.topAnchor];
+            //NSLayoutConstraint *bottom = [tableView.bottomAnchor constraintEqualToAnchor:self.mapView.bottomAnchor];
             
             // when presenting make it a proportion of the superview
             self.proportionalHeightLayoutConstraint = [tableView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.4];
@@ -505,6 +607,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
             // when hiding make it zero height.
             self.zeroHeightLayoutConstraint = [tableView.heightAnchor constraintEqualToConstant:0];
             self.zeroHeightLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
+            
             
             NSArray<NSLayoutConstraint*>* constraintsToActivate = @[leading, trailing, bottom, self.proportionalHeightLayoutConstraint, self.zeroHeightLayoutConstraint];
             [constraintsToActivate enumerateObjectsUsingBlock:^(NSLayoutConstraint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -526,7 +629,7 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
         [UIView animateWithDuration:0.3 animations:^{
             self.zeroHeightLayoutConstraint.priority = UILayoutPriorityDefaultLow;
             self.proportionalHeightLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
-            [tableView layoutIfNeeded];
+            [tableView layoutIfNeeded]; // animate to the new frame
         }];
     }else{
         self.presentingAnnotationsTable = NO;
@@ -534,11 +637,11 @@ static NSString *kDefaultAnnotationReuseIdentifier = @"Annotation";
 }
 
 - (void)willDismissAnnotationsTable{
-
+    // default implementation does nothing
 }
 
 - (void)didDismissAnnotationsTable{
-    
+    // default implementation does nothing
 }
 
 - (void)didReceiveMemoryWarning

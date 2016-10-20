@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Malcolm Hall. All rights reserved.
 //
 
-#import "MHLAnnotationDetailSegue.h"
+#import "MHLAnnotationSegue.h"
 
-@implementation MHLAnnotationDetailSegue
+@implementation MHLAnnotationSegue
 
 // this changes from the map controllers nav controller to the table controllers nav controller if the table is showing.
 - (void)perform

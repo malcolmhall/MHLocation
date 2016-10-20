@@ -26,9 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MHLMapTypeBarButtonItem : UIBarButtonItem
 
 - (instancetype)initWithMapView:(MKMapView *)mapView;
-- (instancetype)initWithMapView:(MKMapView *)mapView userDefaultsKey:(nullable NSString *)userDefaultsKey;
 
-@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong, readonly) MKMapView *mapView;
 
 @end
 

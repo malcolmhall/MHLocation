@@ -25,28 +25,28 @@
 		EC3144911D073C610025F669 /* MHLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144901D073C610025F669 /* MHLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144981D073C610025F669 /* MHLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC31448D1D073C610025F669 /* MHLocation.framework */; };
 		EC31449D1D073C610025F669 /* MHLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31449C1D073C610025F669 /* MHLocationTests.m */; };
-		EC3144BC1D073CD20025F669 /* CLLocationManager+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A71D073CD20025F669 /* CLLocationManager+MHL.h */; };
+		EC3144BC1D073CD20025F669 /* CLLocationManager+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A71D073CD20025F669 /* CLLocationManager+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144BD1D073CD20025F669 /* CLLocationManager+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144A81D073CD20025F669 /* CLLocationManager+MHL.m */; };
-		EC3144BE1D073CD20025F669 /* MHLAnnotationDetailSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A91D073CD20025F669 /* MHLAnnotationDetailSegue.h */; };
-		EC3144BF1D073CD20025F669 /* MHLAnnotationDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AA1D073CD20025F669 /* MHLAnnotationDetailSegue.m */; };
-		EC3144C01D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AB1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h */; };
+		EC3144BE1D073CD20025F669 /* MHLAnnotationSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A91D073CD20025F669 /* MHLAnnotationSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3144BF1D073CD20025F669 /* MHLAnnotationSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AA1D073CD20025F669 /* MHLAnnotationSegue.m */; };
+		EC3144C01D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AB1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C11D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AC1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.m */; };
-		EC3144C21D073CD20025F669 /* MHLEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AD1D073CD20025F669 /* MHLEmptySegue.h */; };
+		EC3144C21D073CD20025F669 /* MHLEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AD1D073CD20025F669 /* MHLEmptySegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C31D073CD20025F669 /* MHLEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AE1D073CD20025F669 /* MHLEmptySegue.m */; };
-		EC3144C41D073CD20025F669 /* MHLFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AF1D073CD20025F669 /* MHLFetchedResultsMapViewController.h */; };
+		EC3144C41D073CD20025F669 /* MHLFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AF1D073CD20025F669 /* MHLFetchedResultsMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C51D073CD20025F669 /* MHLFetchedResultsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B01D073CD20025F669 /* MHLFetchedResultsMapViewController.m */; };
-		EC3144C61D073CD20025F669 /* MHLManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B11D073CD20025F669 /* MHLManagedObject.h */; };
+		EC3144C61D073CD20025F669 /* MHLManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B11D073CD20025F669 /* MHLManagedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C71D073CD20025F669 /* MHLManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B21D073CD20025F669 /* MHLManagedObject.m */; };
-		EC3144C81D073CD20025F669 /* MHLMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B31D073CD20025F669 /* MHLMapTypeBarButtonItem.h */; };
+		EC3144C81D073CD20025F669 /* MHLMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B31D073CD20025F669 /* MHLMapTypeBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C91D073CD20025F669 /* MHLMapTypeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B41D073CD20025F669 /* MHLMapTypeBarButtonItem.m */; };
-		EC3144CA1D073CD20025F669 /* MHLMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B51D073CD20025F669 /* MHLMapViewController.h */; };
+		EC3144CA1D073CD20025F669 /* MHLMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B51D073CD20025F669 /* MHLMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144CB1D073CD20025F669 /* MHLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B61D073CD20025F669 /* MHLMapViewController.m */; };
 		EC3144CC1D073CD20025F669 /* MHLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3144B71D073CD20025F669 /* MHLocation.xcassets */; };
 		EC3144CD1D073CD20025F669 /* MHLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B81D073CD20025F669 /* MHLocation.xcdatamodeld */; };
-		EC3144CE1D073CD20025F669 /* NSPredicate+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */; };
+		EC3144CE1D073CD20025F669 /* NSPredicate+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144CF1D073CD20025F669 /* NSPredicate+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */; };
-		EC6758741DAFDF2700838798 /* MHLNamespaceDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC67588A1DAFE8F800838798 /* MHLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758711DAFDCD400838798 /* MHLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECC28DEE1DB6242E001E4446 /* MHLDefines+Namespace.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC28DED1DB6242E001E4446 /* MHLDefines+Namespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +75,8 @@
 		EC31449E1D073C610025F669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3144A71D073CD20025F669 /* CLLocationManager+MHL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+MHL.h"; sourceTree = "<group>"; };
 		EC3144A81D073CD20025F669 /* CLLocationManager+MHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+MHL.m"; sourceTree = "<group>"; };
-		EC3144A91D073CD20025F669 /* MHLAnnotationDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLAnnotationDetailSegue.h; sourceTree = "<group>"; };
-		EC3144AA1D073CD20025F669 /* MHLAnnotationDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLAnnotationDetailSegue.m; sourceTree = "<group>"; };
+		EC3144A91D073CD20025F669 /* MHLAnnotationSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLAnnotationSegue.h; sourceTree = "<group>"; };
+		EC3144AA1D073CD20025F669 /* MHLAnnotationSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLAnnotationSegue.m; sourceTree = "<group>"; };
 		EC3144AB1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLAnnotationsTableBarButtonItem.h; sourceTree = "<group>"; };
 		EC3144AC1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLAnnotationsTableBarButtonItem.m; sourceTree = "<group>"; };
 		EC3144AD1D073CD20025F669 /* MHLEmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLEmptySegue.h; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+MHL.h"; sourceTree = "<group>"; };
 		EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+MHL.m"; sourceTree = "<group>"; };
 		EC6758711DAFDCD400838798 /* MHLDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLDefines.h; sourceTree = "<group>"; };
-		EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLNamespaceDefines.h; sourceTree = "<group>"; };
+		ECC28DED1DB6242E001E4446 /* MHLDefines+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MHLDefines+Namespace.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +139,11 @@
 			children = (
 				EC3144901D073C610025F669 /* MHLocation.h */,
 				EC6758711DAFDCD400838798 /* MHLDefines.h */,
-				EC6758731DAFDF2700838798 /* MHLNamespaceDefines.h */,
+				ECC28DED1DB6242E001E4446 /* MHLDefines+Namespace.h */,
 				EC3144A71D073CD20025F669 /* CLLocationManager+MHL.h */,
 				EC3144A81D073CD20025F669 /* CLLocationManager+MHL.m */,
-				EC3144A91D073CD20025F669 /* MHLAnnotationDetailSegue.h */,
-				EC3144AA1D073CD20025F669 /* MHLAnnotationDetailSegue.m */,
+				EC3144A91D073CD20025F669 /* MHLAnnotationSegue.h */,
+				EC3144AA1D073CD20025F669 /* MHLAnnotationSegue.m */,
 				EC3144AB1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h */,
 				EC3144AC1D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.m */,
 				EC3144AD1D073CD20025F669 /* MHLEmptySegue.h */,
@@ -183,12 +183,12 @@
 			files = (
 				EC3144C81D073CD20025F669 /* MHLMapTypeBarButtonItem.h in Headers */,
 				EC3144BC1D073CD20025F669 /* CLLocationManager+MHL.h in Headers */,
-				EC6758741DAFDF2700838798 /* MHLNamespaceDefines.h in Headers */,
 				EC3144C61D073CD20025F669 /* MHLManagedObject.h in Headers */,
-				EC3144BE1D073CD20025F669 /* MHLAnnotationDetailSegue.h in Headers */,
+				EC3144BE1D073CD20025F669 /* MHLAnnotationSegue.h in Headers */,
 				EC67588A1DAFE8F800838798 /* MHLDefines.h in Headers */,
 				EC3144911D073C610025F669 /* MHLocation.h in Headers */,
 				EC3144C41D073CD20025F669 /* MHLFetchedResultsMapViewController.h in Headers */,
+				ECC28DEE1DB6242E001E4446 /* MHLDefines+Namespace.h in Headers */,
 				EC3144CA1D073CD20025F669 /* MHLMapViewController.h in Headers */,
 				EC3144C21D073CD20025F669 /* MHLEmptySegue.h in Headers */,
 				EC3144C01D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.h in Headers */,
@@ -314,7 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3144BD1D073CD20025F669 /* CLLocationManager+MHL.m in Sources */,
-				EC3144BF1D073CD20025F669 /* MHLAnnotationDetailSegue.m in Sources */,
+				EC3144BF1D073CD20025F669 /* MHLAnnotationSegue.m in Sources */,
 				EC3144C11D073CD20025F669 /* MHLAnnotationsTableBarButtonItem.m in Sources */,
 				EC3144C31D073CD20025F669 /* MHLEmptySegue.m in Sources */,
 				EC3144CF1D073CD20025F669 /* NSPredicate+MHL.m in Sources */,
@@ -537,6 +537,7 @@
 				EC6759841DB145E200838798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

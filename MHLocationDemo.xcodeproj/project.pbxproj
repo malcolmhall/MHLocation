@@ -11,11 +11,11 @@
 		EC6758561DAFDA3900838798 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6758551DAFDA3900838798 /* AppDelegate.m */; };
 		EC6758591DAFDA3900838798 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6758581DAFDA3900838798 /* MasterViewController.m */; };
 		EC67585C1DAFDA3900838798 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC67585B1DAFDA3900838798 /* DetailViewController.m */; };
-		EC67585F1DAFDA3900838798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC67585D1DAFDA3900838798 /* Main.storyboard */; };
 		EC6758611DAFDA3900838798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6758601DAFDA3900838798 /* Assets.xcassets */; };
 		EC6758641DAFDA3900838798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6758621DAFDA3900838798 /* LaunchScreen.storyboard */; };
 		EC6758831DAFE00200838798 /* MHLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC67587F1DAFDFF400838798 /* MHLocation.framework */; };
 		EC6758841DAFE00200838798 /* MHLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC67587F1DAFDFF400838798 /* MHLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECCDE27D1DB6BEEA00EC8108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCDE27B1DB6BEEA00EC8108 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +65,11 @@
 		EC6758581DAFDA3900838798 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		EC67585A1DAFDA3900838798 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		EC67585B1DAFDA3900838798 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		EC67585E1DAFDA3900838798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC6758601DAFDA3900838798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC6758631DAFDA3900838798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC6758651DAFDA3900838798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6758791DAFDFF400838798 /* MHLocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHLocation.xcodeproj; path = ../MHLocation.xcodeproj; sourceTree = "<group>"; };
+		ECCDE27C1DB6BEEA00EC8108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +109,8 @@
 				EC6758581DAFDA3900838798 /* MasterViewController.m */,
 				EC67585A1DAFDA3900838798 /* DetailViewController.h */,
 				EC67585B1DAFDA3900838798 /* DetailViewController.m */,
-				EC67585D1DAFDA3900838798 /* Main.storyboard */,
 				EC6758601DAFDA3900838798 /* Assets.xcassets */,
+				ECCDE27B1DB6BEEA00EC8108 /* Main.storyboard */,
 				EC6758621DAFDA3900838798 /* LaunchScreen.storyboard */,
 				EC6758651DAFDA3900838798 /* Info.plist */,
 				EC6758821DAFDFF700838798 /* Frameworks */,
@@ -226,9 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCDE27D1DB6BEEA00EC8108 /* Main.storyboard in Resources */,
 				EC6758641DAFDA3900838798 /* LaunchScreen.storyboard in Resources */,
 				EC6758611DAFDA3900838798 /* Assets.xcassets in Resources */,
-				EC67585F1DAFDA3900838798 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,20 +257,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EC67585D1DAFDA3900838798 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC67585E1DAFDA3900838798 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC6758621DAFDA3900838798 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EC6758631DAFDA3900838798 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ECCDE27B1DB6BEEA00EC8108 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECCDE27C1DB6BEEA00EC8108 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -362,10 +362,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphonesimulator",
-				);
 				INFOPLIST_FILE = MHLocationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MHLocationDemo;
@@ -377,10 +373,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphonesimulator",
-				);
 				INFOPLIST_FILE = MHLocationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MHLocationDemo;

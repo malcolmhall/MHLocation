@@ -8,16 +8,17 @@
 
 #import "MHLManagedObject.h"
 
-
 @interface MHLManagedObject()
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
-@property (nonatomic) double horizontalAccuracy;
-@property (nonatomic) double verticalAccuracy;
-@property (nonatomic) double course;
-@property (nonatomic) double speed;
-@property (nonatomic) double altitude;
-@property (nonatomic, retain) NSDate* timestamp;
+
+@property (nonatomic, assign) double latitude;
+@property (nonatomic, assign) double longitude;
+@property (nonatomic, assign) double horizontalAccuracy;
+@property (nonatomic, assign) double verticalAccuracy;
+@property (nonatomic, assign) double course;
+@property (nonatomic, assign) double speed;
+@property (nonatomic, assign) double altitude;
+@property (nonatomic, strong) NSDate *timestamp;
+
 @end
 
 @implementation MHLManagedObject
@@ -32,7 +33,6 @@
 @dynamic timestamp;
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
-    
     NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
     
     if ([key isEqualToString:@"coordinate"]) {
@@ -40,11 +40,12 @@
         keyPaths = [keyPaths setByAddingObjectsFromArray:affectingKeys];
     }
     else if([key isEqualToString:@"location"]) {
-        NSArray *affectingKeys = @[@"latitude", @"longitude",@"horizontalAccuracy",@"verticalAccuracy",@"course",@"speed",@"altitude",@"timestamp"];
+        NSArray *affectingKeys = @[@"latitude", @"longitude", @"horizontalAccuracy", @"verticalAccuracy", @"course", @"speed", @"altitude", @"timestamp"];
         keyPaths = [keyPaths setByAddingObjectsFromArray:affectingKeys];
     }
     return keyPaths;
 }
+
 //
 //-(void)_setPrimitiveLocationValue:(id)value forKey:(NSString*)key{
 //    [self willChangeValueForKey:key];

@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MHLAnnotationDetailSegue : UIStoryboardSegue
+@interface MHLAnnotationSegue : UIStoryboardSegue
 
 @end
 

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MHLocation/MHLocation.h>
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : MHLMapViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 

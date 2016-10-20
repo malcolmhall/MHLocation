@@ -14,13 +14,11 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 @interface MHLFetchedResultsMapViewController()
 
 //@property (nonatomic) NSPredicate* previousPredicate;
+//@property (nonatomic, assign) MKCoordinateRegion lastCoordinateRegion;
 
 @end
 
-@implementation MHLFetchedResultsMapViewController{
-    //NSFetchRequest* _fetchRequest;
-    MKCoordinateRegion _lastCoordinateRegion;
-}
+@implementation MHLFetchedResultsMapViewController
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -37,14 +35,9 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     _fetchedResultsController = fetchedResultsController;
     _fetchedResultsController.delegate = self;
     // only reload if the view is loaded because we will do the first load after the view loads.
-    if(self.isViewLoaded){
-        [self reloadData];
-    }
-}
-
--(void)viewDidLoad{
-    [super viewDidLoad];
-    [self reloadData];
+//    if(self.isViewLoaded){
+//        [self reloadData];
+//    }
 }
 
 -(NSPredicate*)predicateForCoordinateRegion:(MKCoordinateRegion)region{
@@ -52,8 +45,9 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 }
 
 // perform a new fetch
--(void)reloadData{
-    MKCoordinateRegion region = self.mapView.region;
+-(BOOL)reloadData:(NSError **)error{
+    //MKCoordinateRegion region = self.mapView.region;
+    //self.lastCoordinateRegion = region;
     
 //    if(self.limitFetchToMapRegion){
 //        // if the predicate hasn't changed and we haven't moved then do nothing.
@@ -70,52 +64,16 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 //        
 //    }
     
-    if(!_fetchedResultsController){
-        return;
-    }
-    
-    NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        //NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        //abort();
+        return NO;
     }
-    
-    NSArray* fetchedObjects = _fetchedResultsController.fetchedObjects;
-    
-    NSMutableArray* removeAnnotations = [NSMutableArray array];
-    NSMutableArray* addAnnotations = [NSMutableArray array];
-    
-    // find the annotations to remove from the map
-    for(id<MKAnnotation> annotation in self.mapView.annotations){
-        // todo check if kind of class that that the results controller is supposed to be returning.
-        if([annotation isEqual:self.mapView.userLocation]){
-            // do nothing with user
-        }
-        else if([fetchedObjects containsObject:annotation]){
-            // already on map
-        }else{
-            [removeAnnotations addObject:annotation];
-        }
-    }
-    // find the annotations to add to the map
-    for(id<MKAnnotation> annotation in fetchedObjects){
-        if([self.mapView.annotations containsObject:annotation]){
-            // already on the map
-        }
-        else{
-            [addAnnotations addObject:annotation];
-        }
-    }
-    
-    [self.mapView removeAnnotations:removeAnnotations];
-    [self.mapView addAnnotations:addAnnotations];
-    [self.annotationsTableView reloadData];
-    
+    [self reloadData];
+    return YES;
     //[self.mapView showAnnotations:fetchedObjects animated:YES];
-    
-    _lastCoordinateRegion = region;
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{

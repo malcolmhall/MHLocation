@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 // defaults to delete and saves context.
 - (void)deleteObject:(NSManagedObject *)managedObject;
 
+// calls performFetch then reloadData.
+-(BOOL)reloadData:(NSError **)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

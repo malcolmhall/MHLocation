@@ -21,44 +21,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // To show a detail view controller when tapping the callout accessory or list view disclosure button,
 // Add the new view controller and control drag from the map controller to the new one,
-// Choose 'annotation detail' segue and set the identifer showDetail.
-// Now in the map view controller subclass add this method, the MKAnnotation is the sender.
+// Choose 'annotation detail' segue and set the identifer showAnnotation, class MHLAnnotationSegue, kind Custom.
+// If this is not configured correctly then the annotation view disclosure button and table accessory will not appear when running in private API mode.
 
-
-typedef NS_ENUM(NSInteger, MHLAnnotationTablePresentationStyle) {
-    MHLAnnotationTablePresentationStyleModal,
-    MHLAnnotationTablePresentationStyleSheet
+typedef NS_ENUM(NSInteger, MHLannotationsTablePresentationStyle) {
+    MHLannotationsTablePresentationStyleModal,
+    MHLAnnotationsTablePresentationStyleSheet
 };
 
-MHLOCATION_EXTERN NSString * const MHShowAnnotationDetailSegueIdentifier; // The default is 'showAnnotationDetail' so set that identifier in the storyboard manual segue.
+MHLOCATION_EXTERN NSString * const MHShowAnnotationSegueIdentifier; // The default is 'showAnnotation' so set that identifier in the storyboard manual segue.
 MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custom cell in the table view that is hooked up to the outlet use the identifier 'annotation'
 
 @class MHLMapTypeBarButtonItem;
-@class MHLAnnotationsTableBarButtonItem;
-@protocol MHLMapViewControllerDataSource;
 
 @interface MHLMapViewController : UIViewController<MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
-//@property (nonatomic, weak, nullable) id <MHLMapViewControllerDataSource> dataSource;
+@property (nonatomic, strong, readonly) MKMapView *mapView;
 
-@property (nonatomic, readonly) MKMapView *mapView;
+@property (nonatomic, strong, readonly) MKUserTrackingBarButtonItem *userTrackingBarButtonItem;
 
-@property (nonatomic, readonly) MKUserTrackingBarButtonItem *userTrackingBarButtonItem;
+@property (nonatomic, strong, readonly) MHLMapTypeBarButtonItem *mapTypeBarButtonItem;
 
-@property (nonatomic, readonly) MHLMapTypeBarButtonItem* mapTypeBarButtonItem;
+@property (nonatomic, strong, readonly) UIBarButtonItem *annotationsTableBarButtonItem;
 
-@property (nonatomic, readonly) UIBarButtonItem* annotationsTableBarButtonItem;
-
-// contains the 3 buttons and spacers.
-@property (nonatomic, readonly) NSArray<UIBarButtonItem*>* defaultToolBarItems;
+// contains the arrow, map type segmented and annotation table, with appropriate spacers.
+@property (nonatomic, strong, readonly) NSArray<UIBarButtonItem *> *defaultToolBarItems;
 
 // defaults to "Annotation"
-@property (nonatomic, copy) NSString* annotationReuseIdentifier;
+@property (nonatomic, copy) NSString *annotationReuseIdentifier;
 
-@property (nonatomic) IBOutlet UITableView* annotationsTableView;
+// a default table view will be created if one isn't set in the storyboard, hence strong.
+@property (nonatomic, strong) IBOutlet UITableView *annotationsTableView;
 
 // if this is changed while the table is presented the behavior is undefined.
-@property (assign) MHLAnnotationTablePresentationStyle annotationTablePresentationStyle;
+@property (nonatomic, assign) MHLannotationsTablePresentationStyle annotationsTablePresentationStyle;
 
 - (void)presentAnnotationsTable;
 
@@ -69,74 +65,26 @@ MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custo
 - (void)showDetailForAnnotation:(id<MKAnnotation>)annotation;
 
 // override to customise the detail controller. Internally this uses prepareForSegue so if you override that then you must call super.
-- (void)prepareForAnnotationDetailViewController:(UIViewController*)viewController annotation:(id<MKAnnotation>)annotation;
+- (void)prepareForAnnotationDetailViewController:(UIViewController *)viewController annotation:(id<MKAnnotation>)annotation;
 
 // If you override prepareForSegue you must call super.
 
 // inserts to table then adds to map. The annotation must have been added to annotations before calling these methods.
 - (void)insertAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-- (void)deleteAnnotations:(NSArray<id<MKAnnotation>>*)annotations atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+- (void)deleteAnnotations:(NSArray<id<MKAnnotation>> *)annotations atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 //- (void)reloadAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 
+- (void)reloadData;
+
+// the default is nil
 - (id<MKAnnotation>)annotationAtIndex:(NSUInteger)index;
+// the default is 0
 - (NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation;
+// the default is 0
 - (NSInteger)numberOfAnnotations;
+// the default is nil
 - (UITableViewCell *)cellForAnnotation:(id<MKAnnotation>)annotation;
-@end
 
-//@protocol MHMapViewDelegate <MKMapViewDelegate>
-//
-//@optional
-////supply an image for the annotation to support showing images for off-map annotation views.
-//-(UIImage*)imageForAnnotation:(id<MKAnnotation>)annotation;
-//
-//@end
-
-@protocol MHLMapViewControllerDataSource<NSObject>
-//@required
-
-/*
-@required
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-
-@optional
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;              // Default is 1 if not implemented
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
-- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
-
-// Editing
-
-// Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
-
-// Moving/reordering
-
-// Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
-
-// Index
-
-- (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView __TVOS_PROHIBITED;                                                    // return list of section titles to display in section index view (e.g. "ABCD...Z#")
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index __TVOS_PROHIBITED;  // tell table which section corresponds to section title/index (e.g. "B",1))
-
-// Data manipulation - insert and delete support
-
-// After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
-// Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
-
-// Data manipulation - reorder / moving support
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
-*/
 @end
 
 NS_ASSUME_NONNULL_END

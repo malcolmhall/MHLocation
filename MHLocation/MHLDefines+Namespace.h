@@ -1,8 +1,8 @@
 //
-//  MHLNamespaceDefines.h
+//  MHLDefines+Namespace.h
 //  MHLocation
 //
-//  Generated using MHNamespaceGenerator on 14/10/2016
+//  Generated using MHNamespaceGenerator on 18/10/2016
 //
 
 #if !defined(__MHLOCATION_NS_SYMBOL) && defined(MHLOCATION_NAMESPACE)
@@ -10,7 +10,7 @@
     #define __MHLOCATION_NS_BRIDGE(ns, symbol) __MHLOCATION_NS_REWRITE(ns, symbol)
     #define __MHLOCATION_NS_SYMBOL(symbol) __MHLOCATION_NS_BRIDGE(MHLOCATION_NAMESPACE, symbol)
 // Classes
-    #define MHLAnnotationDetailSegue __MHLOCATION_NS_SYMBOL(MHLAnnotationDetailSegue)
+    #define MHLAnnotationSegue __MHLOCATION_NS_SYMBOL(MHLAnnotationSegue)
     #define MHLAnnotationsTableBarButtonItem __MHLOCATION_NS_SYMBOL(MHLAnnotationsTableBarButtonItem)
     #define MHLEmptySegue __MHLOCATION_NS_SYMBOL(MHLEmptySegue)
     #define MHLFetchedResultsMapViewController __MHLOCATION_NS_SYMBOL(MHLFetchedResultsMapViewController)

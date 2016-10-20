@@ -11,7 +11,7 @@
 #import <MHLocation/MHLDefines.h>
 
 #import <MHLocation/MHLManagedObject.h>
-#import <MHLocation/MHLAnnotationDetailSegue.h>
+#import <MHLocation/MHLAnnotationSegue.h>
 #import <MHLocation/MHLAnnotationsTableBarButtonItem.h>
 #import <MHLocation/MHLEmptySegue.h>
 #import <MHLocation/MHLFetchedResultsMapViewController.h>
