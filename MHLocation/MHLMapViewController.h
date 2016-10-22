@@ -67,7 +67,7 @@ MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custo
 // override to customise the detail controller. Internally this uses prepareForSegue so if you override that then you must call super.
 - (void)prepareForAnnotationDetailViewController:(UIViewController *)viewController annotation:(id<MKAnnotation>)annotation;
 
-// If you override prepareForSegue you must call super.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender NS_REQUIRES_SUPER;
 
 // inserts to table then adds to map. The annotation must have been added to annotations before calling these methods.
 - (void)insertAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
