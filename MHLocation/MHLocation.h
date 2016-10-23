@@ -22,4 +22,4 @@
 
 #import <MHLocation/CLLocationManager+MHL.h>
 #import <MHLocation/NSPredicate+MHL.h>
-
+#import <MHLocation/MKMapView+MHL.h>
