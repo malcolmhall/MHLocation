@@ -71,7 +71,7 @@ MHLOCATION_EXTERN NSString * const MHAnnotationCellIdentifier; // To use a custo
 
 // inserts to table then adds to map. The annotation must have been added to annotations before calling these methods.
 - (void)insertAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-- (void)deleteAnnotations:(NSArray<id<MKAnnotation>> *)annotations atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+- (void)deleteAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 //- (void)reloadAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 
 - (void)reloadData;

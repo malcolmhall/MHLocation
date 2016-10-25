@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSFetchedResultsController *fetchedResultsController;
 
-@property (nonatomic, strong, nullable) NSString *keyPrefix;
-
 // not implemented
 @property (nonatomic, assign) BOOL limitFetchToMapRegion;
 

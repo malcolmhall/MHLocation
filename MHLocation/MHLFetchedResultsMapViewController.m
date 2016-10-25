@@ -15,6 +15,8 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 
 //@property (nonatomic) NSPredicate* previousPredicate;
 //@property (nonatomic, assign) MKCoordinateRegion lastCoordinateRegion;
+@property (nonatomic, strong) NSMutableArray *indexPathsToAdd;
+@property (nonatomic, strong) NSMutableArray *indexPathsToRemove;
 
 @end
 
@@ -178,6 +180,8 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     }
     // begin updates
     [self.annotationsTableView beginUpdates];
+    self.indexPathsToAdd = [NSMutableArray array];
+    self.indexPathsToRemove = [NSMutableArray array];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
@@ -191,12 +195,15 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
         case NSFetchedResultsChangeInsert:
             //[tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             //[mapView addAnnotation:anObject];
-            [self insertAnnotationsAtIndexPaths:@[[NSIndexPath indexPathWithIndex:newIndexPath.row]]];
+            //[self insertAnnotationsAtIndexPaths:@[]];
+            [self.indexPathsToAdd addObject:[NSIndexPath indexPathWithIndex:newIndexPath.row]];
             break;
             
         case NSFetchedResultsChangeDelete:
             //[mapView removeAnnotation:anObject];
-            [self deleteAnnotations:@[anObject] atIndexPaths:@[[NSIndexPath indexPathWithIndex:indexPath.row]]];
+            //[self deleteAnnotations:@[anObject] atIndexPaths:@[[NSIndexPath indexPathWithIndex:indexPath.row]]];
+            //[self deleteAnnotationsAtIndexPaths:@[]];
+            [self.indexPathsToRemove addObject:[NSIndexPath indexPathWithIndex:indexPath.row]];
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -211,10 +218,12 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
             if(![indexPath isEqual:newIndexPath]){
                 //NSLog(@"move %@ to %@", indexPath, newIndexPath);
                 // move assumes reload however if we do both it crashes with 2 animations cannot be done at the same time.
-                [self.annotationsTableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.annotationsTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                });
+//                [self.annotationsTableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.annotationsTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//                });
+                [self.annotationsTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.annotationsTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }else{
                 //NSLog(@"Move %@", indexPath);
                 // it hadn't actually moved but it was updated. Required as of iOS 9.
@@ -230,8 +239,15 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     if(controller != self.fetchedResultsController){
         return;
     }
+    
+    [self deleteAnnotationsAtIndexPaths:self.indexPathsToRemove];
+    [self insertAnnotationsAtIndexPaths:self.indexPathsToAdd];
+    
     // end updates
     [self.annotationsTableView endUpdates];
+    
+    self.indexPathsToAdd = nil;
+    self.indexPathsToRemove = nil;
 }
 
 - (id<MKAnnotation>)annotationAtIndex:(NSUInteger)index{
@@ -243,7 +259,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
     return [sectionInfo numberOfObjects];
 }
 
--(NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
+- (NSUInteger)indexOfAnnotation:(id<MKAnnotation>)annotation{
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections].firstObject;
     return [sectionInfo.objects indexOfObject:annotation];
 }

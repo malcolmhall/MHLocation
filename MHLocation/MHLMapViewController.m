@@ -79,6 +79,7 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
 @property (nonatomic, strong) NSLayoutConstraint *proportionalHeightLayoutConstraint;
 
 @property (nonatomic, strong) MHLMapViewControllerLayoutGuide *mvcLayoutGuide;
+@property (nonatomic, strong) NSMutableDictionary<NSNumber *, id<MKAnnotation>> *annotationsByIndex;
 
 @end
 
@@ -104,6 +105,7 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     self.annotationReuseIdentifier = kDefaultAnnotationReuseIdentifier;
     //self.annotations = [NSMutableArray array];
     self.mvcLayoutGuide = [[MHLMapViewControllerLayoutGuide alloc] init];
+    self.annotationsByIndex = [NSMutableDictionary dictionary];
 }
 
 -(id<MKAnnotation>)annotationAtIndex:(NSUInteger)index{
@@ -159,21 +161,29 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
         // add to array for table
         [fixedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
         // add to array for map
-        [annotations addObject:[self annotationAtIndex:index]];
+        id<MKAnnotation> annotation = [self annotationAtIndex:index];
+        [annotations addObject:annotation];
+        //[self.annotationsOnMap insertObject:annotation atIndex:index];
+        self.annotationsByIndex[@(index)] = annotation;
     }
-    [self.annotationsTableView insertRowsAtIndexPaths:fixedIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[self.annotationsOnMap addObjectsFromArray:annotations];
     [self.mapView addAnnotations:annotations];
+    [self.annotationsTableView insertRowsAtIndexPaths:fixedIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 // we need to supply the annotations, because if this is called from a fetch controller delete then the annotation has already gone so cannot
 // use annotationAtIndex:index like the insert does.
-- (void)deleteAnnotations:(NSArray<id<MKAnnotation>>*)annotations atIndexPaths:(NSArray<NSIndexPath *> *)indexPaths{
+- (void)deleteAnnotationsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths{
     NSMutableArray* fixedIndexPaths = [NSMutableArray array];
-//    NSMutableArray* annotations = [NSMutableArray array];
+    NSMutableArray* annotations = [NSMutableArray array];
     for(NSIndexPath* indexPath in indexPaths){
         NSInteger index = [indexPath indexAtPosition:0];
         [fixedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
-//        [annotations addObject:[self annotationAtIndex:index]]; // crashes on the fetched controller delegate delete because its already gone.
+        //[annotations addObject:[self annotationAtIndex:index]]; // crashes on the fetched controller delegate delete because its already gone.
+        //[self.annotationsOnMap removeObjectAtIndex:index];
+        id<MKAnnotation> annotation = self.annotationsByIndex[@(index)];
+        [annotations addObject:annotation];
+        [self.annotationsByIndex removeObjectForKey:@(index)];
     }
     [self.mapView removeAnnotations:annotations];
     [self.annotationsTableView deleteRowsAtIndexPaths:fixedIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -205,11 +215,11 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
 -(void)reloadData{
     
     NSInteger number = [self numberOfAnnotations];
-    NSMutableArray *annotations = [NSMutableArray array];
+    NSMutableDictionary<NSNumber *, id<MKAnnotation>> *annotationsByIndex = [NSMutableDictionary dictionary];
     for(NSInteger i=0;i<number;i++){
         id<MKAnnotation> annotation = [self annotationAtIndex:i];
         if(annotation){
-            [annotations addObject:annotation];
+            annotationsByIndex[@(i)] = annotation;
         }
     }
     
@@ -217,29 +227,37 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     NSMutableArray* addAnnotations = [NSMutableArray array];
     
     // find the annotations to remove from the map
-    for(id<MKAnnotation> annotation in self.mapView.annotations){
+    //for(id<MKAnnotation> annotation in self.mapView.annotations){
+    for(NSNumber *index in self.annotationsByIndex.allKeys){
+        id<MKAnnotation> annotation = self.annotationsByIndex[index];
         // todo check if kind of class that that the results controller is supposed to be returning.
-        if([annotation isEqual:self.mapView.userLocation]){
+        //if([annotation isEqual:self.mapView.userLocation]){
             // do nothing with user
-        }
-        else if([annotations containsObject:annotation]){
+        //}
+        if(annotationsByIndex[index]){
             // already on map
         }else{
             [removeAnnotations addObject:annotation];
+            [self.annotationsByIndex removeObjectForKey:index];
         }
     }
     // find the annotations to add to the map
-    for(id<MKAnnotation> annotation in annotations){
-        if([self.mapView.annotations containsObject:annotation]){
+    //for(id<MKAnnotation> annotation in annotations){
+    //for(NSIndexPath *indexPath in indexPaths){
+    for(NSNumber *index in annotationsByIndex.allKeys){
+        id<MKAnnotation> annotation = annotationsByIndex[index];
+        //if([self.annotationsByIndexPath.allValues containsObject:annotation]){
+        if(self.annotationsByIndex[index]){
             // already on the map
         }
         else{
             [addAnnotations addObject:annotation];
+            self.annotationsByIndex[index] = annotation;
         }
     }
-    
     [self.mapView removeAnnotations:removeAnnotations];
     [self.mapView addAnnotations:addAnnotations];
+    
     [self.annotationsTableView reloadData];
 }
 
@@ -319,6 +337,14 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     
     // reload after subclass has done viewDidLoad
     [self performSelector:@selector(reloadData) withObject:nil afterDelay:0];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    //_annotationsTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    self.annotationsTableView = tableView;
+
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
