@@ -45,7 +45,7 @@
 		EC3144CD1D073CD20025F669 /* MHLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B81D073CD20025F669 /* MHLocation.xcdatamodeld */; };
 		EC3144CE1D073CD20025F669 /* NSPredicate+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144BA1D073CD20025F669 /* NSPredicate+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144CF1D073CD20025F669 /* NSPredicate+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144BB1D073CD20025F669 /* NSPredicate+MHL.m */; };
-		EC6408EC1DBC1A5300AF9016 /* MKMapView+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6408EA1DBC1A5300AF9016 /* MKMapView+MHL.h */; };
+		EC6408EC1DBC1A5300AF9016 /* MKMapView+MHL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6408EA1DBC1A5300AF9016 /* MKMapView+MHL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6408ED1DBC1A5300AF9016 /* MKMapView+MHL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6408EB1DBC1A5300AF9016 /* MKMapView+MHL.m */; };
 		EC67588A1DAFE8F800838798 /* MHLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758711DAFDCD400838798 /* MHLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECC28DEE1DB6242E001E4446 /* MHLDefines+Namespace.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC28DED1DB6242E001E4446 /* MHLDefines+Namespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
