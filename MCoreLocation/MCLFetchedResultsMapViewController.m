@@ -39,7 +39,7 @@ NSString* kDefaultAnnotationViewIdentifier = @"Pin";
 }
 
 -(NSPredicate*)predicateForCoordinateRegion:(MKCoordinateRegion)region{
-    return [NSPredicate MCL_predicateWithCoordinateRegion:region];
+    return [NSPredicate mcl_predicateWithCoordinateRegion:region];
 }
 
 // perform a new fetch

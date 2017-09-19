@@ -332,7 +332,7 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
                       context:kMCLMapViewControllerContext];
     
     if(self.mapView.showsUserLocation){
-        [CLLocationManager MCL_requestLocationAuthorizationIfNotDetermined];
+        [CLLocationManager mcl_requestLocationAuthorizationIfNotDetermined];
     }
     
     // reload after subclass has done viewDidLoad
@@ -403,7 +403,7 @@ static NSString * const kDefaultAnnotationReuseIdentifier = @"Annotation";
     if(context == kMCLMapViewControllerContext){
         //if([keyPath isEqualToString:NSStringFromSelector(@selector(showsUserLocation))]){
         if([[change objectForKey:NSKeyValueChangeNewKey] boolValue]){
-            [CLLocationManager MCL_requestLocationAuthorizationIfNotDetermined];
+            [CLLocationManager mcl_requestLocationAuthorizationIfNotDetermined];
         }
         //}
     }

@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/mh/Development/Open Source/MHLocation/MCLDemo.xcodeproj">
+      location = "group:MCLDemo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/mh/Development/Open Source/MHLocation/MCoreLocation.xcodeproj">
+      location = "group:MCoreLocation.xcodeproj">
    </FileRef>
 </Workspace>

@@ -10,7 +10,7 @@
 
 @implementation CLLocationManager (MCL)
 
-+ (void)MCL_requestLocationAuthorizationIfNotDetermined{
++ (void)mcl_requestLocationAuthorizationIfNotDetermined{
     if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
         BOOL always = NO;
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){

@@ -12,7 +12,7 @@
 
 @interface NSPredicate (MCL)
 
-+ (NSPredicate *)MCL_predicateWithCoordinateRegion:(MKCoordinateRegion)region;
-+ (NSPredicate *)MCL_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString *)keyPrefix;
++ (NSPredicate *)mcl_predicateWithCoordinateRegion:(MKCoordinateRegion)region;
++ (NSPredicate *)mcl_predicateWithCoordinateRegion:(MKCoordinateRegion)region keyPrefix:(NSString *)keyPrefix;
 
 @end

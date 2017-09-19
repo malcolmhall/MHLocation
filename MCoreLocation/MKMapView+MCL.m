@@ -37,7 +37,7 @@ double pixelSpaceYToLatitude(double pixelY)
 #pragma mark -
 #pragma mark Helper methods
 
-- (MKCoordinateSpan)MCL_coordinateSpanWithMapView:(MKMapView *)mapView
+- (MKCoordinateSpan)mcl_coordinateSpanWithMapView:(MKMapView *)mapView
                              centerCoordinate:(CLLocationCoordinate2D)centerCoordinate
                                  andZoomLevel:(NSUInteger)zoomLevel
 {
@@ -78,7 +78,7 @@ double pixelSpaceYToLatitude(double pixelY)
 #pragma mark -
 #pragma mark Public methods
 
-- (void)MCL_setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
+- (void)mcl_setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
                   zoomLevel:(NSUInteger)zoomLevel
                    animated:(BOOL)animated
 {
@@ -86,7 +86,7 @@ double pixelSpaceYToLatitude(double pixelY)
     zoomLevel = MIN(zoomLevel, 28);
     
     // use the zoom level to compute the region
-    MKCoordinateSpan span = [self MCL_coordinateSpanWithMapView:self centerCoordinate:centerCoordinate andZoomLevel:zoomLevel];
+    MKCoordinateSpan span = [self mcl_coordinateSpanWithMapView:self centerCoordinate:centerCoordinate andZoomLevel:zoomLevel];
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, span);
     
     // set the region like normal
@@ -94,7 +94,7 @@ double pixelSpaceYToLatitude(double pixelY)
 }
 
 //KMapView cannot display tiles that cross the pole (as these would involve wrapping the map from top to bottom, something that a Mercator projection just cannot do).
-- (MKCoordinateRegion)MCL_coordinateRegionWithMapView:(MKMapView *)mapView
+- (MKCoordinateRegion)mcl_coordinateRegionWithMapView:(MKMapView *)mapView
                                 centerCoordinate:(CLLocationCoordinate2D)centerCoordinate
                                     andZoomLevel:(NSUInteger)zoomLevel
 {
@@ -151,7 +151,7 @@ double pixelSpaceYToLatitude(double pixelY)
 	return region;
 }
 
-- (double)MCL_zoomLevel {
+- (double)mcl_zoomLevel {
     MKCoordinateRegion region = self.region;
     
     double centerPixelX = longitudeToPixelSpaceX(region.center.longitude);

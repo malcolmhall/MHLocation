@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // checks if the Info plist is configured correctly and requests the appropriate authorization depending on plist contents.
 // NSLocationWhenInUseUsageDescription
-+ (void)MCL_requestLocationAuthorizationIfNotDetermined;
++ (void)mcl_requestLocationAuthorizationIfNotDetermined;
 
 @end
 

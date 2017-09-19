@@ -12,13 +12,13 @@
 
 @interface MKMapView (MCL)
 
-- (void)MCL_setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
+- (void)mcl_setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
                   zoomLevel:(NSUInteger)zoomLevel
                    animated:(BOOL)animated;
 
-- (MKCoordinateRegion)MCL_coordinateRegionWithMapView:(MKMapView *)mapView
+- (MKCoordinateRegion)mcl_coordinateRegionWithMapView:(MKMapView *)mapView
                                 centerCoordinate:(CLLocationCoordinate2D)centerCoordinate
                                     andZoomLevel:(NSUInteger)zoomLevel;
-- (double)MCL_zoomLevel;
+- (double)mcl_zoomLevel;
 
 @end
