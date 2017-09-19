@@ -107,7 +107,6 @@
     return location;
 }
 
-// used by MKAnnotation, we also have the required key-value observing methods above to notify the map when the location has changed so it can ask for the new coordinate.
 - (CLLocationCoordinate2D)coordinate{
     return self.location.coordinate;
 }

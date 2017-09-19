@@ -21,13 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) double longitude;
 @property (nonatomic, assign, readonly) double altitude;
 @property (nonatomic, assign, readonly) double horizontalAccuracy;
-
-@end
-
-@interface MCLManagedObject (MKAnnotation)<MKAnnotation>
-
+// KVO notifications are sent whenever the location changes, thus supports moving a map annotation.
 @property (nonatomic, assign, readonly) CLLocationCoordinate2D coordinate;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

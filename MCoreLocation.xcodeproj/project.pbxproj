@@ -27,26 +27,10 @@
 		EC31449D1D073C610025F669 /* MCoreLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31449C1D073C610025F669 /* MCoreLocationTests.m */; };
 		EC3144BC1D073CD20025F669 /* CLLocationManager+MCL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A71D073CD20025F669 /* CLLocationManager+MCL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144BD1D073CD20025F669 /* CLLocationManager+MCL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144A81D073CD20025F669 /* CLLocationManager+MCL.m */; };
-		EC3144BE1D073CD20025F669 /* MCLAnnotationSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144A91D073CD20025F669 /* MCLAnnotationSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144BF1D073CD20025F669 /* MCLAnnotationSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AA1D073CD20025F669 /* MCLAnnotationSegue.m */; };
-		EC3144C01D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AB1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144C11D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AC1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.m */; };
-		EC3144C21D073CD20025F669 /* MCLEmptySegue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AD1D073CD20025F669 /* MCLEmptySegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144C31D073CD20025F669 /* MCLEmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144AE1D073CD20025F669 /* MCLEmptySegue.m */; };
-		EC3144C41D073CD20025F669 /* MCLFetchedResultsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144AF1D073CD20025F669 /* MCLFetchedResultsMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144C51D073CD20025F669 /* MCLFetchedResultsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B01D073CD20025F669 /* MCLFetchedResultsMapViewController.m */; };
 		EC3144C61D073CD20025F669 /* MCLManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B11D073CD20025F669 /* MCLManagedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144C71D073CD20025F669 /* MCLManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B21D073CD20025F669 /* MCLManagedObject.m */; };
-		EC3144C81D073CD20025F669 /* MCLMapTypeBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B31D073CD20025F669 /* MCLMapTypeBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144C91D073CD20025F669 /* MCLMapTypeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B41D073CD20025F669 /* MCLMapTypeBarButtonItem.m */; };
-		EC3144CA1D073CD20025F669 /* MCLMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144B51D073CD20025F669 /* MCLMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144CB1D073CD20025F669 /* MCLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144B61D073CD20025F669 /* MCLMapViewController.m */; };
-		EC3144CE1D073CD20025F669 /* NSPredicate+MCL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144BA1D073CD20025F669 /* NSPredicate+MCL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3144CF1D073CD20025F669 /* NSPredicate+MCL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3144BB1D073CD20025F669 /* NSPredicate+MCL.m */; };
 		EC507B5B1F7160A5003940EB /* MCoreLocation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC507B581F7160A0003940EB /* MCoreLocation.xcassets */; };
 		EC507B5C1F7160AC003940EB /* MCoreLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC507B591F7160A0003940EB /* MCoreLocation.xcdatamodeld */; };
-		EC6408EC1DBC1A5300AF9016 /* MKMapView+MCL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6408EA1DBC1A5300AF9016 /* MKMapView+MCL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC6408ED1DBC1A5300AF9016 /* MKMapView+MCL.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6408EB1DBC1A5300AF9016 /* MKMapView+MCL.m */; };
 		EC67588A1DAFE8F800838798 /* MCLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6758711DAFDCD400838798 /* MCLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECC28DEE1DB6242E001E4446 /* MCLDefines+Namespace.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC28DED1DB6242E001E4446 /* MCLDefines+Namespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -77,26 +61,10 @@
 		EC31449E1D073C610025F669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3144A71D073CD20025F669 /* CLLocationManager+MCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+MCL.h"; sourceTree = "<group>"; };
 		EC3144A81D073CD20025F669 /* CLLocationManager+MCL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+MCL.m"; sourceTree = "<group>"; };
-		EC3144A91D073CD20025F669 /* MCLAnnotationSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLAnnotationSegue.h; sourceTree = "<group>"; };
-		EC3144AA1D073CD20025F669 /* MCLAnnotationSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLAnnotationSegue.m; sourceTree = "<group>"; };
-		EC3144AB1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLAnnotationsTableBarButtonItem.h; sourceTree = "<group>"; };
-		EC3144AC1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLAnnotationsTableBarButtonItem.m; sourceTree = "<group>"; };
-		EC3144AD1D073CD20025F669 /* MCLEmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLEmptySegue.h; sourceTree = "<group>"; };
-		EC3144AE1D073CD20025F669 /* MCLEmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLEmptySegue.m; sourceTree = "<group>"; };
-		EC3144AF1D073CD20025F669 /* MCLFetchedResultsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLFetchedResultsMapViewController.h; sourceTree = "<group>"; };
-		EC3144B01D073CD20025F669 /* MCLFetchedResultsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLFetchedResultsMapViewController.m; sourceTree = "<group>"; };
 		EC3144B11D073CD20025F669 /* MCLManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLManagedObject.h; sourceTree = "<group>"; };
 		EC3144B21D073CD20025F669 /* MCLManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLManagedObject.m; sourceTree = "<group>"; };
-		EC3144B31D073CD20025F669 /* MCLMapTypeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLMapTypeBarButtonItem.h; sourceTree = "<group>"; };
-		EC3144B41D073CD20025F669 /* MCLMapTypeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLMapTypeBarButtonItem.m; sourceTree = "<group>"; };
-		EC3144B51D073CD20025F669 /* MCLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCLMapViewController.h; sourceTree = "<group>"; };
-		EC3144B61D073CD20025F669 /* MCLMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCLMapViewController.m; sourceTree = "<group>"; };
-		EC3144BA1D073CD20025F669 /* NSPredicate+MCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+MCL.h"; sourceTree = "<group>"; };
-		EC3144BB1D073CD20025F669 /* NSPredicate+MCL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+MCL.m"; sourceTree = "<group>"; };
 		EC507B581F7160A0003940EB /* MCoreLocation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MCoreLocation.xcassets; sourceTree = "<group>"; };
 		EC507B5A1F7160A0003940EB /* MHLocation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHLocation.xcdatamodel; sourceTree = "<group>"; };
-		EC6408EA1DBC1A5300AF9016 /* MKMapView+MCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+MCL.h"; sourceTree = "<group>"; };
-		EC6408EB1DBC1A5300AF9016 /* MKMapView+MCL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+MCL.m"; sourceTree = "<group>"; };
 		EC6758711DAFDCD400838798 /* MCLDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCLDefines.h; sourceTree = "<group>"; };
 		ECC28DED1DB6242E001E4446 /* MCLDefines+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCLDefines+Namespace.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,24 +114,8 @@
 				ECC28DED1DB6242E001E4446 /* MCLDefines+Namespace.h */,
 				EC3144A71D073CD20025F669 /* CLLocationManager+MCL.h */,
 				EC3144A81D073CD20025F669 /* CLLocationManager+MCL.m */,
-				EC3144A91D073CD20025F669 /* MCLAnnotationSegue.h */,
-				EC3144AA1D073CD20025F669 /* MCLAnnotationSegue.m */,
-				EC3144AB1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.h */,
-				EC3144AC1D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.m */,
-				EC3144AD1D073CD20025F669 /* MCLEmptySegue.h */,
-				EC3144AE1D073CD20025F669 /* MCLEmptySegue.m */,
-				EC3144AF1D073CD20025F669 /* MCLFetchedResultsMapViewController.h */,
-				EC3144B01D073CD20025F669 /* MCLFetchedResultsMapViewController.m */,
 				EC3144B11D073CD20025F669 /* MCLManagedObject.h */,
 				EC3144B21D073CD20025F669 /* MCLManagedObject.m */,
-				EC3144B31D073CD20025F669 /* MCLMapTypeBarButtonItem.h */,
-				EC3144B41D073CD20025F669 /* MCLMapTypeBarButtonItem.m */,
-				EC3144B51D073CD20025F669 /* MCLMapViewController.h */,
-				EC3144B61D073CD20025F669 /* MCLMapViewController.m */,
-				EC3144BA1D073CD20025F669 /* NSPredicate+MCL.h */,
-				EC3144BB1D073CD20025F669 /* NSPredicate+MCL.m */,
-				EC6408EA1DBC1A5300AF9016 /* MKMapView+MCL.h */,
-				EC6408EB1DBC1A5300AF9016 /* MKMapView+MCL.m */,
 				EC3144921D073C610025F669 /* Info.plist */,
 				EC507B581F7160A0003940EB /* MCoreLocation.xcassets */,
 				EC507B591F7160A0003940EB /* MCoreLocation.xcdatamodeld */,
@@ -187,19 +139,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3144C81D073CD20025F669 /* MCLMapTypeBarButtonItem.h in Headers */,
-				EC6408EC1DBC1A5300AF9016 /* MKMapView+MCL.h in Headers */,
 				EC3144BC1D073CD20025F669 /* CLLocationManager+MCL.h in Headers */,
 				EC3144C61D073CD20025F669 /* MCLManagedObject.h in Headers */,
-				EC3144BE1D073CD20025F669 /* MCLAnnotationSegue.h in Headers */,
 				EC67588A1DAFE8F800838798 /* MCLDefines.h in Headers */,
 				EC3144911D073C610025F669 /* MCoreLocation.h in Headers */,
-				EC3144C41D073CD20025F669 /* MCLFetchedResultsMapViewController.h in Headers */,
 				ECC28DEE1DB6242E001E4446 /* MCLDefines+Namespace.h in Headers */,
-				EC3144CA1D073CD20025F669 /* MCLMapViewController.h in Headers */,
-				EC3144C21D073CD20025F669 /* MCLEmptySegue.h in Headers */,
-				EC3144C01D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.h in Headers */,
-				EC3144CE1D073CD20025F669 /* NSPredicate+MCL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,16 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3144BD1D073CD20025F669 /* CLLocationManager+MCL.m in Sources */,
-				EC3144BF1D073CD20025F669 /* MCLAnnotationSegue.m in Sources */,
-				EC3144C11D073CD20025F669 /* MCLAnnotationsTableBarButtonItem.m in Sources */,
-				EC3144C31D073CD20025F669 /* MCLEmptySegue.m in Sources */,
-				EC3144CF1D073CD20025F669 /* NSPredicate+MCL.m in Sources */,
 				EC3144C71D073CD20025F669 /* MCLManagedObject.m in Sources */,
-				EC3144C51D073CD20025F669 /* MCLFetchedResultsMapViewController.m in Sources */,
 				EC507B5C1F7160AC003940EB /* MCoreLocation.xcdatamodeld in Sources */,
-				EC6408ED1DBC1A5300AF9016 /* MKMapView+MCL.m in Sources */,
-				EC3144C91D073CD20025F669 /* MCLMapTypeBarButtonItem.m in Sources */,
-				EC3144CB1D073CD20025F669 /* MCLMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
