@@ -6,21 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		EC6759821DB145E200838798 /* Namespace */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = EC6759851DB145E200838798 /* Build configuration list for PBXAggregateTarget "Namespace" */;
-			buildPhases = (
-				EC6759861DB145F000838798 /* ShellScript */,
-			);
-			dependencies = (
-				EC6759881DB145FA00838798 /* PBXTargetDependency */,
-			);
-			name = Namespace;
-			productName = Namespace;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		EC3144911D073C610025F669 /* MCoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3144901D073C610025F669 /* MCoreLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3144981D073C610025F669 /* MCoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC31448D1D073C610025F669 /* MCoreLocation.framework */; };
@@ -37,13 +22,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		EC3144991D073C610025F669 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC3144841D073C610025F669 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC31448C1D073C610025F669;
-			remoteInfo = MHLocation;
-		};
-		EC6759871DB145FA00838798 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC3144841D073C610025F669 /* Project object */;
 			proxyType = 1;
@@ -201,9 +179,6 @@
 					EC3144961D073C610025F669 = {
 						CreatedOnToolsVersion = 7.3;
 					};
-					EC6759821DB145E200838798 = {
-						CreatedOnToolsVersion = 7.3;
-					};
 				};
 			};
 			buildConfigurationList = EC3144871D073C610025F669 /* Build configuration list for PBXProject "MCoreLocation" */;
@@ -211,6 +186,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = EC3144831D073C610025F669;
@@ -220,7 +196,6 @@
 			targets = (
 				EC31448C1D073C610025F669 /* MCoreLocation */,
 				EC3144961D073C610025F669 /* MCoreLocationTests */,
-				EC6759821DB145E200838798 /* Namespace */,
 			);
 		};
 /* End PBXProject section */
@@ -242,22 +217,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EC6759861DB145F000838798 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "dependencies/MHNamespaceGenerator/script.sh MCoreLocation.framework MCoreLocation MCL";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC3144881D073C610025F669 /* Sources */ = {
@@ -285,11 +244,6 @@
 			isa = PBXTargetDependency;
 			target = EC31448C1D073C610025F669 /* MCoreLocation */;
 			targetProxy = EC3144991D073C610025F669 /* PBXContainerItemProxy */;
-		};
-		EC6759881DB145FA00838798 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC31448C1D073C610025F669 /* MCoreLocation */;
-			targetProxy = EC6759871DB145FA00838798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -448,20 +402,6 @@
 			};
 			name = Release;
 		};
-		EC6759831DB145E200838798 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		EC6759841DB145E200838798 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,15 +428,6 @@
 			buildConfigurations = (
 				EC3144A51D073C610025F669 /* Debug */,
 				EC3144A61D073C610025F669 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC6759851DB145E200838798 /* Build configuration list for PBXAggregateTarget "Namespace" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC6759831DB145E200838798 /* Debug */,
-				EC6759841DB145E200838798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
