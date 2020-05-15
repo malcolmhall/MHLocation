@@ -23,3 +23,5 @@
 #import <MCoreLocation/CLLocationManager+MCL.h>
 #import <MCoreLocation/NSPredicate+MCL.h>
 #import <MCoreLocation/MKMapView+MCL.h>
+
+#import <MCoreLocation/MCLNonBackgroundLocationManager.h>
