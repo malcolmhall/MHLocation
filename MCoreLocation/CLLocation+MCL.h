@@ -3,7 +3,7 @@
 //  PhoneLog
 //
 //  Created by Malcolm Hall on 22/01/2009.
-//  Dynamically Loaded. All rights reserved.
+//  Malcolm Hall. All rights reserved.
 //
 
 #import <CoreLocation/CoreLocation.h>

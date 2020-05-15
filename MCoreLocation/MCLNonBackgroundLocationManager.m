@@ -1,9 +1,9 @@
 //
-//  DLNonBackgroundLocationManager.m
+//  MCLNonBackgroundLocationManager.m
 //  WiFiFoFum Intrepid
 //
 //  Created by Malcolm Hall on 20/10/13.
-//  Copyright (c) 2013 Dynamically Loaded. All rights reserved.
+//  Copyright (c) 2013 Malcolm Hall. All rights reserved.
 //
 
 #import "MCLNonBackgroundLocationManager.h"
